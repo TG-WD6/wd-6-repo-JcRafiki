@@ -9,3 +9,63 @@ Aside
     complementary
 Input
     The input abstract role is a generic type of widget that allows user input.
+
+Wat is HTML?
+    HTML staat voor HyperText Markup Language, Het is de standaard taal voor webpagina's waarmee de structuur van de pagina wordt bepaald. 
+
+Hoe ziet de basis-structuur van HTML eruit?
+    <!DOCTYPE html> definieert dat het een html pagina betreft
+    <html> root element van de pagina
+    <head> bevat de meta data van de pagina
+    <title> specificeert de titel van de pagina
+    <body> definieert de body van de pagina, bevat alle zichtbare content
+
+Wat is een anchor tag?
+    is een verwijzing naar een andere pagina of een ander gedeelte op dezelfde pagina
+
+Noem een aantal nieuwe functionaliteiten van HTML5
+    https://www.geeksforgeeks.org/top-10-new-features-of-html5/
+    1. Audio / video -> embedden
+    2. Vector graphics -> maken van vector figuren die interactable en animeerbaar zijn
+    3. Header and Footer -> Header is standaard aan het begin en footer aan het eind, de browser weet welke als eerste geladen moet worden
+    4. Figure and Figcaption -> <figure> for markup a photo in a document, <figcaption> define caption for a <figure> element
+    5. <nav> tag -> defines a set of navigational links.
+    6. <progress> tag -> is used to check the progress of a task during the excecution
+    7. Placeholder attribute -> specifies a short hint that describes the expected value of an input field/text animeerbaar
+    8. Email attribute -> When the input type in the form set as email, then the browser gets the instruction from the code to write a valid format email. The input email id is automatically validated to check the format of the email id is correct or not.
+    9. Storage -> In the case of HTML, we can use the browser as the temporary storage whereas, in the case of HTML5, application cache, web SQL database, and web storage is used.
+ 
+Wat zijn HTML attributen?
+    HTML attributes provide addition information about HTML elements (https://www.w3schools.com/html/html_attributes.asp)
+    tag <a> atrribute href -> <a href=''></a>
+
+Wat is HTML semantics?
+    Semantic elements - elements with a meaning (https://www.w3schools.com/html/html5_semantic_elements.asp)
+    non-semantic <div> <span>
+    semantic <aside> <details> <figcaption> <figure> <footer> <header> <main> <mark> <nav> <section> <summary> <time>
+
+Waarvoor worden meta tags gebruikt?
+    (https://www.w3schools.com/tags/tag_meta.asp)
+    <meta> tag defines metadata about a HTML document, <meta> tags always go inside the <head> element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.
+
+Wat is een nested element?
+    An element inside another element (https://www.tutorialbrain.com/html_tutorial/html_elements/)
+    <p>This is <b>bold</b> text</p>
+
+Wat is het verschil tussen inline- en blok-elementen?
+    (https://www.w3schools.com/html/html_blocks.asp)
+    Every HTML element has a default display value, depending on what type of element it is.
+    There are two display values: block and inline.
+    A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element.
+    A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+
+    An inline element does not start on a new line.
+    An inline element only takes up as much width as necessary.
+
+Wat is accessibility?
+    (https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+    A great deal of web content can be made accessible just by making sure the correct Hypertext Markup Language elements are used for the correct purpose at all times.
+    Use semantic HTML:
+    1. Easier to develop with
+    2. Better on mobile
+    3. Good for SEO
