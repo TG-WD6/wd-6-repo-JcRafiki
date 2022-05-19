@@ -1,0 +1,11 @@
+Implicit ARIA roles:
+Header
+    banner, or no corresponding role if a descendant of an article, aside, main, nav or section element, or an element with role=article, complementary, main, navigation or region
+Footer
+    contentinfo, or no corresponding role if a descendant of an article, aside, main, nav or section element, or an element with role=article, complementary, main, navigation or region
+Section
+    region if the element has an accessible name, otherwise no corresponding role
+Aside
+    complementary
+Input
+    The input abstract role is a generic type of widget that allows user input.
