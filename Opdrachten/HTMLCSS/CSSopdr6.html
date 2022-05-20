@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Opdracht6</title>
+
+    <style>
+        /*Universal selector*/
+        * {
+            color:grey;
+        }
+
+        /* Attribute selector */
+        a:hover{
+            color:red;
+        }
+
+        /*Child selector*/
+        div > p {
+            color:yellow;
+        }
+
+        /*Adjacent Sibling selector (https://www.youtube.com/watch?v=hqPJHOqW-_I)*/
+        div + p {
+            color:blue;
+        }
+
+        /*General sibling selector*/
+        div ~ p {
+            border:5px dotted orange;
+        }
+    </style>
+
+</head>
+<body>
+    <p>text</p>
+    <a href="#">Attribute selector</a>
+    <div><p>Child selector</p></div>
+    <p>Adjacent Sibling selector</p>
+</body>
+</html>
