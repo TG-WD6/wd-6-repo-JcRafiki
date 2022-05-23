@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Elements</title>
+
+    <style>
+
+        .button{
+            width:500px;
+            height:40px;
+            background-color: green;
+            position:relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .button:before{
+            position: absolute;
+            content:"";
+            left:0px;
+            top:0px;
+            width:30px;
+            height:15px;
+            border-left:5px solid red;
+            border-top:5px solid red;
+        }
+
+        .button:after{
+            position: absolute;
+            content:"";
+            right:0px;
+            bottom:0px;
+            width:30px;
+            height:15px;
+            border-right:5px solid red;
+            border-bottom:5px solid red;
+        }
+
+        .opdr3{
+            height:433px;
+            width:740px;
+            background-image: url('img/boxer.jpg');
+            border: 3px solid grey;
+            padding:5px;
+        }
+        .opdr3:before{
+            content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat porttitor ante, feugiat ornare enim feugiat id. Vivamus venenatis pharetra quam a auctor. Proin tincidunt rhoncus felis et gravida. Sed sit amet nibh neque. Phasellus eleifend dolor nulla, at ullamcorper ipsum euismod a. Proin dictum nibh quis lorem laoreet fringilla. Nam eu felis et arcu ullamcorper aliquet ac sed tortor. Suspendisse in elit iaculis, dignissim metus eu, suscipit velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et magna eget nunc pulvinar mollis a at lectus. Sed nisl tortor, tempor ac ipsum ut, cursus rutrum enim. Vivamus ut fermentum sapien. Sed blandit massa vitae tempus fringilla";
+            color:black;
+        }
+
+        .opdr4{
+            position:relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100px;
+            width:100px;
+            background-color: black;
+            border-radius:50%;
+            margin-left:100px;
+            color:green;
+        }
+
+        .opdr4:before{
+            position: absolute;
+            content:".";
+            font-size: 3em;
+            line-height: 10px;
+            background-color: black;
+            width:40px;
+            height:40px;
+            top:35px;
+            left:-15px;
+            border-radius:25px 25px;
+
+        }
+
+        .opdr4:after{
+            position: absolute;
+            content:".";
+            font-size: 3em;
+            line-height: 20px;
+            color: green;
+            vertical-align: top;
+            background-color: black;
+            _border:1px solid red;
+            width:40px;
+            height:40px;
+            right:-15px;
+            top:35px;
+            border-radius:25px 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Opdracht 2</p>
+    <div class="button">Button</div>
+
+    <p>Opdracht 3</p>
+    <div class="opdr3"></div>
+
+    <p>Opdracht 4</p>
+    <div class="opdr4">1</div>
+</body>
+</html>
