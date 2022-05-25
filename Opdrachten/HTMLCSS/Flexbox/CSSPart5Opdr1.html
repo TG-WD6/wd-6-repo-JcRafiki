@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSPart5 Flexbox</title>
+
+    <style>
+        .container1{
+            display:flex;
+            justify-content: flex-start;
+        }
+        .opdr1{
+            display:flex;
+            Height:100px;
+            width:100px;
+            background-color: turquoise;
+            justify-content: center;
+            align-items: center;
+            margin:10px;
+        }
+
+        .container2{
+            display:flex;
+            justify-content: flex-end;
+        }
+        .opdr2{
+            display:flex;
+            Height:100px;
+            width:100px;
+            background-color: turquoise;
+            justify-content: center;
+            align-items: center;
+            margin:10px;
+        }
+
+        .container3{
+            display:flex;
+            justify-content: flex-end;
+        }
+        .opdr3{
+            display:flex;
+            Height:100px;
+            width:100px;
+            background-color: turquoise;
+            justify-content: center;
+            align-items: center;
+            margin:10px;
+        }
+
+        .opdr3:first-of-type + div{
+            flex-grow:10;
+        }
+
+        .container6{
+            display:flex;
+            flex-direction: column;
+        }
+        .opdr6{
+            display:flex;
+            Height:100px;
+            background-color: turquoise;
+            justify-content: center;
+            align-items: center;
+            margin-top:10px;
+        }
+        
+        .o6-2{
+            width:40%;
+        }
+        .o6-3{
+            width:50%;
+        }
+        .o6-4{
+            width:60%;
+        }
+        .o6-5{
+            width:20%;
+        }
+        .o6-6{
+            width:30%;
+        }
+
+        .container7{
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .opdr7{
+            display:flex;
+            height:800px;
+            background-color: turquoise;
+            justify-content: center;
+            align-items: center;
+            margin-left:10px;
+            width:40px;
+        }
+        
+        .o7-2{
+            height:400px;
+        }
+        .o7-3{
+            height:500px;
+        }
+        .o7-4{
+            height:600px;
+        }
+        .o7-5{
+            height:200px;
+        }
+        .o7-6{
+            height:300px;
+        }
+
+        .container8{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            _border:1px solid black;
+            
+        }
+        .opdr8{
+            display:flex;
+            width:33%;
+            height:350px;
+            background-color: lightyellow;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5%;
+            border:1px solid black;
+        }
+        .o8-2{
+            background-color: lightblue;
+        }
+        .o8-3{
+            background-color: mediumaquamarine;
+        }
+        .o8-4{
+            background-color: floralwhite;
+        }
+        .o8-5{
+            background-color: black;
+            color:white;
+        }
+        .o8-6{
+            background-image:linear-gradient(to right,blue,white)
+        }
+    </style>
+
+
+</head>
+<body>
+<p>Opdracht 1</p>
+<div class="container1">
+    <div class="opdr1">1</div>
+    <div class="opdr1">2</div>
+    <div class="opdr1">3</div>
+    <div class="opdr1">4</div>
+    <div class="opdr1">5</div>
+    <div class="opdr1">6</div>
+</div>
+
+<p>Opdracht 2</p>
+<div class="container2">
+    <div class="opdr2">1</div>
+    <div class="opdr2">2</div>
+    <div class="opdr2">3</div>
+    <div class="opdr2">4</div>
+    <div class="opdr2">5</div>
+    <div class="opdr2">6</div>
+</div>
+
+<p>Opdracht 3</p>
+<div class="container3">
+    <div class="opdr3">1</div>
+    <div class="opdr3">2</div>
+    <div class="opdr3">3</div>
+    <div class="opdr3">4</div>
+    <div class="opdr3">5</div>
+    <div class="opdr3">6</div>
+</div>
+
+<p>Opdracht 4 & 5</p>
+Zie vorige voorbeelden
+
+<p>Opdracht 6</p>
+<div class="container6">
+    <div class="opdr6 o6-1">1</div>
+    <div class="opdr6 o6-2">2</div>
+    <div class="opdr6 o6-3">3</div>
+    <div class="opdr6 o6-4">4</div>
+    <div class="opdr6 o6-5">5</div>
+    <div class="opdr6 o6-6">6</div>
+</div>
+
+<p>Opdracht 7</p>
+<div class="container7">
+    <div class="opdr7 o7-1">1</div>
+    <div class="opdr7 o7-2">2</div>
+    <div class="opdr7 o7-3">3</div>
+    <div class="opdr7 o7-4">4</div>
+    <div class="opdr7 o7-5">5</div>
+    <div class="opdr7 o7-6">6</div>
+</div>
+
+<p>Opdracht 8</p>
+<div class="container8">
+    <div class="opdr8 o8-1">1</div>
+    <div class="opdr8 o8-2">2</div>
+    <div class="opdr8 o8-3">3</div>
+    <div class="opdr8 o8-4">4</div>
+    <div class="opdr8 o8-5">5</div>
+    <div class="opdr8 o8-6">6</div>
+</div>
+
+</body>
+</html>
