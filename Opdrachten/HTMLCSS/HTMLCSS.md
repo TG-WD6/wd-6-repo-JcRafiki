@@ -369,3 +369,56 @@ The ::target-text CSS pseudo-element represents the text that has been scrolled 
 3. zie HTML file
 4. zie HTML file
 5. zie HTML file
+
+=========
+
+Flexbox
+part 5
+
+=========
+
+1-8. zie HTML file
+
+=========
+
+Grid
+part 6
+
+=========
+
+1. Bij CSS Grid wordt vaak gebruikgemaakt van een speciale lengte-eenheid: “fr”. Onderzoek wat deze doet en beschrijf het in je eigen woorden.
+fr = fraction, deelt automatisch de overgebleven witte ruimte op met de gedefinieerde parameters
+
+2-5. Zie HTML file
+
+6. Wat is het verschil tussen justify/align/place-items en justify/align/place-content?
+(https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
+(https://developer.mozilla.org/en-US/docs/Web/CSS/place-content)
+(https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+(https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
+(https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)
+(https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
+
+place-items = align items alnog BOTH the block and inline directions
+place-content = allows you to align content along both the block and inline directions at once in a relevant layout system
+
+align-items = sets the value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid, it controls the alignment of items on the Block Axis within their grid area.
+align-content = sets the distribution of space between and around content items along a flexbox's cross-axis or a grid's block axis
+
+justify-items = defines the default justify-self for all items of the box, giving them all a default way of justifying each box along the appropriate axis.
+justify-content = property defines hoe the browser distributes space between and around content items along the main-axis of a flex-container, and the inline axis of a grid
+
+7. zie HTML file
+
+
+
+
+=========
+
+Transitions
+part 7
+
+=========
+
+1. Zoek uit wat transitions zijn en beschrijf met eigen woorden wat het betekent.
+CSS transitions allows you to change property values smoothly, over a given duration. -> je kan dus elementen animeren

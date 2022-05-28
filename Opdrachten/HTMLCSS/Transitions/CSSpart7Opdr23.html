@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSpart7 Transitions</title>
+
+
+<style>
+    .opdr1{
+        color:red;
+        font-size: 3em;
+        transition: color 300ms linear;
+    }
+    .opdr1:hover{
+        color:blue;
+    }
+
+    .c-opdr2{
+        display:flex;
+        flex-direction: column;
+        border:1px solid #000;
+        width:100%;
+    }
+    .Copdr2{
+        display:flex;
+        margin:5px;
+        border:1px solid #000;
+        height:100px;
+        width:100px;
+        justify-content: center;
+        align-items: center;
+    }
+    .c1{
+        transition: all 2s ease-out;
+    }
+    .c1:hover{
+        transform:translate(calc(100vw - 130px),0);
+        border-radius:50%;
+        background-color: red;
+    }
+    .c2{
+        transition: all 3s linear;
+    }
+    .c2:hover{
+        transform:translate(calc(100vw - 130px),0);
+        border-radius:25%;
+        background-color: red;
+    }
+    .c3{
+        transition: all 2s ease-in-out;
+    }
+    .c3:hover{
+        transform:translate(calc(100vw - 130px),0);
+        background-color: red;
+    }
+    .c4{
+        transition: all 3s linear;
+        transition-timing-function: steps(6, end);
+    }
+    .c4:hover{
+        transform:translate(calc(100vw - 130px),0);
+        background-color: red;
+        
+    }
+    .c5{
+        transition: all 3s linear;
+        transition-timing-function: cubic-bezier(.29, 1.01, 1, -0.68);
+    }
+    .c5:hover{
+        transform:translate(calc(100vw - 130px),0);
+        
+        background-color: red;
+    }
+</style>
+
+</head>
+<body>
+    
+
+<p>Opdracht 1</p>
+<span class="opdr1">Font color transition</span>
+
+<p>Opdracht 2</p>
+<div class="c-opdr2">
+    <div class="Copdr2 c1">1</div>
+    <div class="Copdr2 c2">2</div>
+    <div class="Copdr2 c3">3</div>
+    <div class="Copdr2 c4">4</div>
+    <div class="Copdr2 c5">5</div>
+</div>
+</body>
+</html>

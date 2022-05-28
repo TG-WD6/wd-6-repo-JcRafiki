@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSPart7Opdr7</title>
+
+<style>
+    * {
+        margin:0;
+    }
+    .square{
+        display: flex;
+        width:50px;
+        height:50px;
+        border:1px solid red;
+        position:absolute;
+        justify-content:center;
+        align-items: center;
+        
+    }
+    .s1-1{
+        animation: s1-1 5s infinite;
+        animation-timing-function: linear
+    }
+    .s1-2{
+        animation: s1-2 5s infinite;
+        animation-timing-function: linear; 
+    }
+    .s1-3{
+        animation: s1-3 5s infinite;
+        animation-timing-function: linear; 
+    }
+
+@keyframes s1-1 {
+  0% {
+    left:250px;
+    top:250px;
+  }
+  15%{
+    top:200px;
+    left:250px;
+  }
+  20%{
+    top:100px;
+    left:250px;
+  }
+  25% {
+    left:0px;
+    top:25px;
+  }
+  35% {
+    left:0;
+    top:0;
+  }
+  75% {
+    left:0px;
+    top:100px;
+  }
+  100% {
+    left:250px;
+    top:150px;
+  }
+}
+@keyframes s1-2 {
+  0% {
+    left:250px;
+    top:250px;
+  }
+  15%{
+    top:200px;
+    left:250px;
+  }
+  20%{
+    top:100px;
+    left:250px;
+  }
+  25% {
+    left:500px;
+    top:25px;
+  }
+  35% {
+    left:500px;
+    top:0;
+  }
+  75% {
+    left:500px;
+    top:100px;
+  }
+  100% {
+    left:250px;
+    top:150px;
+  }
+}
+@keyframes s1-3 {
+  0% {
+    left:250px;
+    top:250px;
+  }
+  15%{
+    top:250px;
+    left:250px;
+  }
+  20%{
+    top:250px;
+    left:250px;
+  }
+  25% {
+    left:0px;
+    top:300px;
+  }
+  35% {
+    left:0px;
+    top:500px;
+  }
+  75% {
+    left:0px;
+    top:500px;
+  }
+  80%{
+      left:250px;
+      top:500px;
+  }
+  100% {
+    left:250px;
+    top:150px;
+  }
+}
+</style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="square s1-1">2</div>
+        <div class="square s1-2">1</div>
+        <div class="square s1-3">3</div>
+    </div>
+
+</body>
+</html>
