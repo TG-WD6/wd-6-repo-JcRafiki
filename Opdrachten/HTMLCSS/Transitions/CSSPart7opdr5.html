@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Part 7 opdracht 5</title>
+</head>
+
+<style>
+    * {
+        margin:0px;
+    }
+    .chicken{
+        top:25px;
+        background-image: url("img/17024733.jpg");
+        background-size: contain;
+        width:250px;
+        height:250px;
+        position:relative;
+        transition: all 1s linear;
+        z-index: -2;
+    }
+    .overlay{
+        top:25px;
+        position:absolute;
+        width:250px;
+        height:250px;
+        transition: all 1s linear;
+        transition-delay: 1s;
+        z-index:-1;
+    }
+    .cover{
+        position:absolute;
+        top:25px;
+        height:250px;
+        width:250px;
+        background-color: pink;
+        transition: all 1s linear;
+    }
+    .cover:hover{
+        transform:translate(145px,90px) rotate(45deg);
+        top:100px;
+    }
+    .cover:hover ~ .overlay{
+        border:1px solid black;
+        background-color: red;
+        opacity: 0.5;
+
+    }
+</style>
+
+<body>
+    <div class="cover"></div>
+    <div class="overlay"></div>
+    <div class="chicken"></div>
+</body>
+</html>
