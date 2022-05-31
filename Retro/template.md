@@ -1,4 +1,4 @@
-# Retro Week \##
+# Retro Week
 
 ## Wat ging goed
 1. Succes #1
