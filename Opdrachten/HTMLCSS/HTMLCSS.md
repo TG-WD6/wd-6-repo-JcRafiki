@@ -422,3 +422,96 @@ part 7
 
 1. Zoek uit wat transitions zijn en beschrijf met eigen woorden wat het betekent.
 CSS transitions allows you to change property values smoothly, over a given duration. -> je kan dus elementen animeren
+
+
+=========
+
+SASS
+
+=========
+1. We hebben nu zowel mixins als extends gezien die beiden styling kunnen overnemen. Lees dit artikel en geef een uitleg wanneer we inheritance gebruiken en wanneer we mixins gebruiken.
+Gebruik bij niet dynamische pagina's @extends vanwege mogelijk veel bloated stylesheets
+
+input
+.image {
+  height: 400px * 2;
+  width: auto;
+}
+
+verwachte output
+.image {
+  height: 800px;
+  width: auto;
+}
+
+input
+.image {
+  height: 400px + 100;
+  width: auto;
+}
+
+verwachte output
+.image {
+  height: 500px;
+  width: auto;
+}
+
+input
+.image {
+  height: 400px - 300px;
+  width: auto;
+}
+
+verwachte output
+.image {
+  height: 100px;
+  width: auto;
+}
+
+input
+.image {
+  height: 200px + 100px - 400px;
+  width: auto;
+}
+
+verwachte output
+.image {
+  height: -100px;
+  width: auto;
+}
+
+input
+.image {
+  height: 200px * 3;
+  width: auto;
+}
+
+verwachte output
+.image {
+  height: 600px;
+  width: auto;
+}
+
+input
+.image {
+  height: 750px * 1px;
+  width: auto;
+}
+
+verwachte output
+.image {
+  height: 750px;
+  width: auto;
+}
+
+input
+.image {
+  height: (30px / 5px);
+  width: (24px/ 4);
+}
+
+verwachte output
+.image {
+  height: 6px;
+  width: 6px;
+}

@@ -1,3 +1,10 @@
+// Variables in mediaqueries
+
+$max-width-480: 480px;
+$max-width-480q: "max-width:480px";
+$full-querie: "only screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape)";
+$max-res: "max-resolution: 150dpi";
+
 html,
 body {
   max-width: 1200px;
@@ -94,7 +101,7 @@ nav a {
   bottom: 2px;
 }
 
-@media only screen and (max-width:480px){
+@media only screen and (max-width:$max-width-480){
 
   .page-title{
     width:270px;
@@ -117,14 +124,13 @@ nav a {
   
 } */
 
-@media (max-resolution: 150dpi) and (max-width:480px){
+@media ($max-res) and ($max-width-480q){
   .page-description{
     font-size: 20px;
   }
-  
 }
 
-@media only screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape){
+@media #{$full-querie}{
   .page-title{
     display:flex;
     flex-direction: column;

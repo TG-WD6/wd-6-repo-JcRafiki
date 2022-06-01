@@ -1,0 +1,29 @@
+@mixin button-style{
+    background-color: lightblue;
+    color:purple;
+    
+    &:hover{
+        background-color: pink;
+        color:green;
+    }
+}
+
+@mixin colorChangingSquare($duration){
+    height:100px;
+    width:100px;
+    background-color: purple;
+    transition: background-color $duration linear;
+
+    &:hover{
+        background-color: orange;
+    }
+}
+
+
+.colorChangingSquare{
+    @include colorChangingSquare(1000ms);
+}
+
+.button{
+    @include button-style();
+}

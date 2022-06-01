@@ -7,21 +7,25 @@ body {
   line-height: 1.4em;
   color: GhostWhite;
 }
+
 body {
   background-image: url("./images/space.jpg");
   height: 100%;
   background-attachment: fixed;
   background-size: cover;
 }
+
 .clearfix {
   clear: both;
 }
+
 /* Title and Description */
 .page-title {
   text-align: center;
   margin: auto;
   line-height: 2em;
 }
+
 .logo {
   height: 80px;
   width: 80px;
@@ -32,16 +36,20 @@ body {
   position: relative;
   top: 1em;
 }
+
 .page-title h1 {
   display: inline-block;
 }
+
 .main {
   text-align: center;
 }
+
 .page-description {
   font-size: 0.8rem;
   padding: 30px;
 }
+
 .learn-more {
   color: DarkOrange;
   text-decoration: none;
@@ -49,33 +57,45 @@ body {
   margin: 25px 0 0 0;
   font-weight: bold;
 }
+
 /* Gallery */
 .gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 20px;
 }
+
 .gallery-item {
   margin: 20px;
 }
+
 .gallery-item .thumbnail {
   width: 240px;
   border: 2px solid GhostWhite;
   border-radius: 4px;
 }
+
 /* Footer Navigation */
 nav {
   margin-top: 30px;
 }
+
 nav ul {
   display: block;
 }
+
 nav li {
   display: inline;
   margin: 0 20px 0 0;
   color: GhostWhite;
 }
+
 nav a {
   line-height: 60px;
   border: 1px solid GhostWhite;
@@ -84,22 +104,22 @@ nav a {
   color: DarkOrange;
   text-decoration: none;
 }
+
 .contact-btn {
   cursor: pointer;
   margin: 20px 30px;
   text-align: center;
 }
+
 .contact-btn a:active {
   position: relative;
   bottom: 2px;
 }
 
-@media only screen and (max-width:480px){
-
-  .page-title{
-    width:270px;
+@media only screen and (max-width: 480px) {
+  .page-title {
+    width: 270px;
   }
-  
 }
 
 /* @media only screen and (max-width:480px) and (min-width:320px), (orientation: portrait){
@@ -116,35 +136,47 @@ nav a {
   }
   
 } */
-
-@media (max-resolution: 150dpi) and (max-width:480px){
-  .page-description{
+@media (-webkit-max-device-pixel-ratio: 1.5625) and (max-width: 480px), (max-resolution: 150dpi) and (max-width: 480px) {
+  .page-description {
     font-size: 20px;
   }
-  
 }
 
-@media only screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape){
-  .page-title{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .page-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     justify-items: center;
-    position:absolute;
-
-    width:500px;
+    position: absolute;
+    width: 500px;
   }
   .gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    _flex-direction: column;
-    _justify-content: flex-end;
+    _-webkit-box-orient: vertical;
+    _-webkit-box-direction: normal;
+    _    -ms-flex-direction: column;
+    _        flex-direction: column;
+    _-webkit-box-pack: end;
+    _    -ms-flex-pack: end;
+    _        justify-content: flex-end;
   }
-  .main{
-    
-    display:flex;
+  .main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
-  .page-description{
-    margin-top:250px;
-
+  .page-description {
+    margin-top: 250px;
   }
 }
+/*# sourceMappingURL=main.css.map */
