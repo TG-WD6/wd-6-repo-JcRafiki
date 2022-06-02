@@ -1,23 +1,105 @@
 .root{
     display:grid;
-    border:1px solid black;
-
+    height:100vh;
+    grid-template-rows: auto auto 1fr auto;
 }
 
 .navbar{
-    border:1px solid white;
+    grid-row: 1;
     display:flex;
     max-height:70px;
-    justify-content:space-between;
     padding:10px;
+    background-color:grey;
+    justify-content: space-between;
 
-    &__logo{
-        max-width:100%;
-        max-height:100%;
+    input{
+        position:absolute;
+        height:35px;
+        width:35px;
+        _right:10px;
+        margin:0;
+        z-index:2;
+        opacity:1;
+        
+        &:checked {
+            & ~ div span{
+                transition: all 0.3s cubic-bezier(.25,.01,.75,1);
+            }
+            & ~ div span:nth-child(2){
+                width:0;
+            }
+            & ~ div span:nth-child(1){
+                transform:translateY(10px);
+            }
+            & ~ div span:nth-child(3){
+                transform:translateY(-10px)
+                          rotate(90deg);
+            }
+        }
+
+
     }
 
+    &__logo{
+       max-height:100%;
+       max-width:100%;
+    }
+
+    &__toggle{
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        justify-content: space-between;
+
+        span {
+            display:block;
+            width:25px;
+            height:5px;
+            border-radius: 0.1em;
+            background-color:white;
+            margin: 5px 5px;
+
+        }
+
+        @media (min-width:500px){
+            display:none;
+        }
+    }
+
+
+    &__list{
+        margin:0;
+        padding:0;
+        list-style-type: none;
+        display:none;
+        color:white;
+
+        li{
+            padding: 10px 15px;
+            a{
+                text-decoration: none;
+                color:white;
+            }
+        }
+
+        @media (min-width:500px){
+            display:flex;
+        }
+    }
+} 
+
+.header{
+    grid-row:2;
+    background-color: red;
+} 
+
+.content{
+    grid-row:3;
+    background-color: lightblue;
 }
 
-.header, .content, footer{
-    display:none;
+.footer{
+    grid-row:4;
+    background-color:yellow;
 }

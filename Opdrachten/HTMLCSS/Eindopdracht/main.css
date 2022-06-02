@@ -11,27 +11,131 @@ body {
 .root {
   display: -ms-grid;
   display: grid;
-  border: 1px solid black;
+  height: 100vh;
+  -ms-grid-rows: auto auto 1fr auto;
+      grid-template-rows: auto auto 1fr auto;
 }
 
 .navbar {
-  border: 1px solid white;
+  -ms-grid-row: 1;
+  grid-row: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   max-height: 70px;
+  padding: 10px;
+  background-color: grey;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10px;
+}
+
+.navbar input {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  _right: 10px;
+  margin: 0;
+  z-index: 2;
+  opacity: 1;
+}
+
+.navbar input:checked ~ div span {
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.01, 0.75, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.01, 0.75, 1);
+}
+
+.navbar input:checked ~ div span:nth-child(2) {
+  width: 0;
+}
+
+.navbar input:checked ~ div span:nth-child(1) {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.navbar input:checked ~ div span:nth-child(3) {
+  -webkit-transform: translateY(-10px) rotate(90deg);
+          transform: translateY(-10px) rotate(90deg);
 }
 
 .navbar__logo {
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
 }
 
-.header, .content, footer {
+.navbar__toggle {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 25px;
+  height: 5px;
+  border-radius: 0.1em;
+  background-color: white;
+  margin: 5px 5px;
+}
+
+@media (min-width: 500px) {
+  .navbar__toggle {
+    display: none;
+  }
+}
+
+.navbar__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   display: none;
+  color: white;
+}
+
+.navbar__list li {
+  padding: 10px 15px;
+}
+
+.navbar__list li a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (min-width: 500px) {
+  .navbar__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.header {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  background-color: red;
+}
+
+.content {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  background-color: lightblue;
+}
+
+.footer {
+  -ms-grid-row: 4;
+  grid-row: 4;
+  background-color: yellow;
 }
 /*# sourceMappingURL=main.css.map */
