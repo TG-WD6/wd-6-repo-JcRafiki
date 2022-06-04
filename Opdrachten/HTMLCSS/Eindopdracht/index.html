@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techgrounds Final</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="root">
@@ -18,13 +21,34 @@
             <span></span>
         </div>
         <ul class="navbar__list">
-            <li><a class="navbar__link" href="#">Home</a></li>
-            <li><a class="navbar__link" href="#">Popular</a></li>
-            <li><a class="navbar__link" href="#">Contact</a></li>
+            <li><img src="./img/basic_home.svg"><a class="navbar__link" href="#">Home</a></li>
+            <li><img src="./img/basic_bolt.svg"><a class="navbar__link" href="#">Popular</a></li>
+            <li><img src="./img/basic_mail.svg"><a class="navbar__link" href="#">Contact</a></li>
+            <li><img src="./img/basic_key.svg"><a class="navbar__link" href="#loginScreen">Login</a></li>
         </ul>    
         </nav>
-        <header class="header">header</header>
-        <content class="content">content</content>
+        <header class="header">
+            zoekbalk
+        </header>
+        <content class="content">
+            <loginOverlay>
+                <div id="loginScreen">
+                    <a href="#" class="cancel">x</a>
+                    <img src="./img/basic_lock.svg">
+                    <form>
+                        <fieldset>
+                            <legend>Login</legend>
+                            <input type="text" placeholder="Email">
+                            <input type="password" placeholder="Password">  
+                            <p><span><input type="checkbox" id="rememberMe"><label for="rememberMe">Remember Me</label></span>
+                            <a href="#">Forgot Password?</a></p>
+                            <button type="button">LOGIN</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="cover"></div>
+            </loginOverlay>
+        </content>
         <footer class="footer">footer</footer>
     </div>
 </body>
