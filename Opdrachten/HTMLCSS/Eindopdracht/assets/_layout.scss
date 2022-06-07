@@ -10,7 +10,7 @@
     display:flex;
     max-height:70px;
     padding:10px;
-    background-color:grey;
+    background-color:purple;
     justify-content: space-between;
     &__logo{
         max-height:100%;
@@ -220,19 +220,19 @@
 
 .header{
     grid-row:2;
-    background-color: red;
+    background-color: purple;
     padding:3px;
     display:flex;
     flex-direction: row;
 }
 .content{
     grid-row:3;
-    background-color: lightblue;
+    background-color: purple;
 }
 
 .footer{
     grid-row:4;
-    background-color:yellow;
+    background-color:purple;
 }
 
 @keyframes growMenu {
@@ -241,7 +241,7 @@
         transform: scaleX(0);
     }
     80% {
-      transform: scaleX(1.1);
+        transform: scaleX(1.1);
     }
     100% {
         opacity: 1;
@@ -255,7 +255,7 @@
         transform: scaleY(0);
     }
     80% {
-      transform: scaleY(1.1);
+        transform: scaleY(1.1);
     }
     100% {
         opacity: 1;

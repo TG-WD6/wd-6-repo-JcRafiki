@@ -1,0 +1,125 @@
+//product
+.productCardContainer{
+    display:flex;
+    font-family: Arial, Helvetica, sans-serif;
+    .productCardTile{
+        padding: 15px;
+        display:flex;
+        flex-direction: row;
+        .productCardImg{
+            min-height:165px;
+            min-width:165px;
+        }
+        .productCardDesc{
+            padding:5px;
+            font-size:smaller;
+            .productCardTitle{
+                font-size: larger;
+                font-weight:bold;
+            }
+        }
+        .productCardPrice{
+            display:block;
+            color:red;
+            .productCardPriceContainer{
+                display:block;
+                .productCardPriceWhole{
+                    font-weight:700;
+                    font-size: 2rem;
+                }
+                .productCardPriceDec:before{
+                    top:-5px;
+                    left:8px;
+                    font-weight:700;
+                    line-height:0;
+                    position: relative;
+                    content:',';
+
+                }
+                .productCardPriceDec{
+                    line-height:0;
+                    position: relative;
+                    margin-left:-14px;
+                    top:2px;
+                    font-size:1.75rem;
+                    vertical-align:sup;
+                }
+            } 
+            .productCardOrder{
+                display: flex;
+                flex-direction: column;
+                font-size: 0.75rem;
+                color:green;
+                img{
+                    width:111px;
+                }
+            }
+        }
+
+    }
+}
+
+//accordion
+.accordionContainer{
+    padding:20px;
+    .accordionBtn {
+        background-color:blue;
+        width:100%;
+        color:white;
+        text-align:left;
+        border:none;
+        outline:none;
+        display:flex;
+        justify-content: space-between;
+        padding:10px;
+        text-transform: uppercase;
+        font-weight:bold;
+    }
+    .accordionActive, .accordionBtn:hover{
+        background-color: #c5c5c5c5;
+    }
+    .accordionBtn:after{
+        content: '\02795';
+        font-size: 13px;
+        color: white;
+        margin-left: 5px;
+    }
+    .accordionActive:after{
+        content: "\2796";
+    }
+    .accordionPanel{
+        background-color: white;
+        overflow:hidden;
+        max-height:0;
+        transition: max-height 0.2s ease-out;
+        width:100%;
+    }
+}
+
+//footer
+.footerContainer{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color:white;
+    .footerSitemap{
+        display:flex;
+        padding:10px;
+        flex-direction: row;
+        ul{
+            list-style-type: none;
+        }
+        li:first-of-type{
+            color:yellow;
+            font-weight:bold;
+        }
+    }
+    .footerSocials{
+        padding:25px;
+      
+        img{
+            width:34px;
+            height:34px;
+        }
+    }
+}
