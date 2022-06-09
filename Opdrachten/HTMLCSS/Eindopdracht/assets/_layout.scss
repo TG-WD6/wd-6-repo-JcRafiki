@@ -2,47 +2,51 @@
     display:grid;
     height:100vh;
     grid-template-rows: auto auto 1fr auto;
-    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-family: $primary-font;
 }
 
 .navbar{
     grid-row: 1;
     display:flex;
+    position:sticky;
+    top:0;
     max-height:70px;
     padding:10px;
-    background-color:purple;
+    background-color:$primary-color;
     justify-content: space-between;
+    z-index:3;
     &__logo{
         max-height:100%;
         max-width:100%;
     }
-
-    //mobile    
+    //mobileview if viewport is smaller than 500px    
     @media (max-width:500px) {
-        input{
+        input[type=checkbox]{ 
             position:absolute;
+            right:6px;
             height:50px;
             width:35px;
-            right:10px;
-            margin:0;
-            z-index:2;
+            z-index:4;
             opacity:0;
-            
-            & ~ ul {
+            padding:0;
+            & ~  ul {
                 position:absolute;
                 top:50px;
                 left:0;
                 flex-direction: column;
                 width:100%;
-                background-color: purple;
                 display:none;
                 padding:5px;
+                background-color: $secondary-color;
                 & li {
                     display:none;
                     opacity: 0;
                     a{
-                    text-decoration: none;
-                    color:white;
+                        text-decoration: none;
+                        color:$primary-color;
+                    }
+                    a:hover{
+                        color:$tertiary-color;
                     }
                 }
                 img{
@@ -50,7 +54,6 @@
                     margin-right:10px;
                 }
             }
-
             &:checked {
                 & ~ div span:nth-child(2){
                     width:0;
@@ -93,15 +96,15 @@
             align-items: center;
             width:35px;
             height:35px;
+            margin-top:10px;
             span {
                 display:block;
                 width:25px;
                 height:5px;
                 border-radius: 0.15em;
-                background-color:white;
+                background-color:$tertiary-color;
                 transition: all 0.3s linear;
                 margin:1px;
-
                 &:nth-child(2){
                     transition:width 0.3s linear;
                     transition-delay: 0.3s;
@@ -110,14 +113,11 @@
                 &:nth-child(1) &:nth-child(3){
                     transition-delay: 0.3s;
                 }
-
             }
         }
-
     }
-
-    //desktop
-    @media (min-width:500px) {
+    //desktopview if vieport is wider than 501px;
+    @media (min-width:501px) {
         input {
             display:none;
         }
@@ -126,12 +126,14 @@
             padding:0;
             list-style-type: none;
             display:flex;
-            color:white;
             li{
                 padding: 10px 15px;
                 a{
                     text-decoration: none;
-                    color:white;
+                    color:$tertiary-color;
+                }
+                a:hover{
+                    color:$secondary-color;
                 }
                 img {
                     display:none;
@@ -140,101 +142,20 @@
         }
     }
 } 
-
-//login overlay
-#cover{
-    position:fixed;
-    top:0;
-    left:0;
-    background:rgba(0,0,0,0.6);
-    z-index:5;
-    width:100%;
-    height:100%;
-    display:none;
-}
-
-#loginScreen{
-    height:400px;
-    width:340px;
-    margin:0 auto;
-    position:relative;
-    z-index:10;
-    display:none;
-    border:5px solid #ccc;
-    border-radius:10px;
-    background-color:white;
-    padding:15px;
-    font-size:10pt;
-    text-align:center;
-    input[type=text], input[type=password]{
-        width:100%;
-        padding:5px;
-        border:none;
-        outline:none;
-        border-bottom:1px solid black;
-    }
-    button{
-        width:100%;
-        height:25px;
-        background-color: #003fff;
-        border:none;
-        color:white;
-        font-size:larger;
-        font-weight:bold;
-        cursor: pointer;
-        background-image: url('/Opdrachten/HTMLCSS/Eindopdracht/img/basic_target.svg');
-        background-repeat: no-repeat;
-        background-size: 7%;
-        background-position-x: 30%;
-        background-position-y: 50%;
-    }
-    button:active{
-        background-color: pink;
-    }
-    p {
-        display:flex;
-        justify-content: space-between;
-    }
-    img{
-        width:150px;
-    }
-}
-#loginScreen:target, #loginScreen:target + #cover{
-    display:block;
-    opacity:1;
-}
-.cancel{
-    display:block;
-    position:absolute;
-    top:3px;
-    right:2px;
-    background:rgb(245,245,245);
-    color:black;
-    height:40px;
-    width:35px;
-    font-size:30px;
-    text-decoration:none;
-    text-align:center;
-    font-weight:bold;
-}
-
 .header{
     grid-row:2;
-    background-color: purple;
     padding:3px;
     display:flex;
     flex-direction: row;
 }
 .content{
     grid-row:3;
-    background-color: purple;
 }
-
 .footer{
     grid-row:4;
-    background-color:purple;
 }
 
+//menu animations
 @keyframes growMenu {
     0% {
         opacity: 0;
