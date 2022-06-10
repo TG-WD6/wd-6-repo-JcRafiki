@@ -1,4 +1,58 @@
-//login overlay
+//searchBar
+.searchBarContainer{
+    position:relative;
+    min-width:200px;
+    //textinput markup
+    input{
+        position:relative;
+        height:20px;
+        left:48px;
+        border-left:0px;
+        border-top:1px solid $secondary-color;
+        border-right:1px solid $secondary-color;
+        border-bottom:1px solid $secondary-color;    
+    }
+    //change border color when focused - remove outline
+    input:focus {
+        border-top:1px solid $tertiary-color;
+        border-right:1px solid $tertiary-color;
+        border-bottom:1px solid $tertiary-color;
+        outline:none;
+        //change button color when textfield in focus
+        ~button{
+            background-color: $tertiary-color;
+        }
+    }
+    //button markup - curved leftside
+    button{
+        top:4px;
+        height:20px;
+        margin-left:18px;
+        position:absolute;
+        border:none;
+        display:flex;
+        justify-content: right;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background-color: $secondary-color;
+        &:hover{
+            background-color: $tertiary-color;
+        }
+    } 
+}
+//align searchbar in FireFox
+@supports (-moz-appearance: none) {
+    .searchBarContainer{
+        button{
+            top:3px;
+        }
+        input{
+            left:44px;
+        }
+    }
+}
+
+//loginOverlay
 #cover{
     position:fixed;
     top:0;
@@ -12,6 +66,7 @@
 
 //loginScreen
 #loginScreen{
+    //login tile markup
     height:400px;
     width:340px;
     margin:0 auto;
@@ -25,6 +80,11 @@
     font-size:10pt;
     text-align:center;
     color:$secondary-color;
+    //hover effect close
+    a:hover{
+        color:$tertiary-color;
+    }
+    //textfield markup
     input[type=text], input[type=password]{
         width:100%;
         padding:5px;
@@ -34,6 +94,7 @@
         background-color: $primary-color;
         color:$tertiary-color;
     }
+    //login button markup
     button{
         width:100%;
         height:25px;
@@ -43,6 +104,7 @@
         font-size:larger;
         font-weight:bold;
         cursor: pointer;
+        //backgroundimage in button
         background-image: url('/Opdrachten/HTMLCSS/Eindopdracht/img/basic_target.svg');
         background-repeat: no-repeat;
         background-size: 7%;
@@ -59,10 +121,12 @@
     img{
         width:150px;
     }
+    //show logintile + cover
     &:target, &:target + #cover{
         display:block;
         opacity:1;
     }
+    //cancel cross markup
     .cancel{
         display:block;
         position:absolute;
@@ -77,26 +141,51 @@
         text-align:center;
         font-weight:bold;
     }
-    
 }
 
+@media (max-width:$screen-size-max) {
+    .productCardContainer {
+        .productCardTile{
+            flex-direction: column;
+            .productCardDesc{
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+            
+        }
+    }
+}
+@media (min-width:$screen-size-min) {
+    .productCardContainer {
+        .productCardTile{
+            flex-direction: row;
+            .productCardDesc{
+                padding:20px;
+            }
+            
+        }
+    }
+}
 //productCard
 .productCardContainer{
     display:flex;
     font-family: $secondary-font;
     color:$secondary-color;
+    flex-wrap: wrap;
     .productCardTile{
         padding: 15px;
         display:flex;
-        flex-direction: row;
-        width:100%;
         justify-content: space-between;
         .productCardImg{
+            display:flex;
             min-height:165px;
             min-width:165px;
+            background-image: url('./img/girl-works-laptop.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .productCardDesc{
-            padding:5px;
             font-size:smaller;
             .productCardTitle{
                 font-size: larger;
@@ -112,6 +201,7 @@
                     font-weight:700;
                     font-size: 2rem;
                 }
+                //position decimal
                 .productCardPriceDec:before{
                     top:-5px;
                     left:8px;
@@ -186,18 +276,44 @@
         cursor: pointer;
         border-radius: 5px;
         padding:5px;
+        width:200px;
+        span{
+            display:inline-block;
+            position:relative;
+            transition:0.5s;
+            &:after{
+                content:'\00bb';
+                position:absolute;
+                opacity: 0;
+                top:0;
+                right:-20px;
+                transition: 0.5s;
+                color:$secondary-color;
+            }
+        }
     }
     button:hover{
         background-color: $tertiary-color;
+        span{
+            padding-right:25px;
+            &:after{
+                opacity: 1;
+                right:0;
+            }
+        }
     }
+    
+
 }
 
 //accordion
 .accordionContainer{
     padding:20px;
+    display:flex;
+    flex-direction: column;
+
     .accordionBtn {
         background-color:$secondary-color;
-        width:100%;
         color:$primary-color;
         text-align:left;
         border:none;
@@ -222,6 +338,8 @@
         content: "\2796";
     }
     .accordionPanel{
+        display:flex;
+        flex-direction: column;
         color:$primary-color;
         overflow:hidden;
         max-height:0;
@@ -236,14 +354,15 @@
     display:flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
     .footerSitemap{
         display:flex;
+        flex-wrap: wrap;
         padding:10px;
         flex-direction: row;
         ul{
             list-style-type: none;
         }
+        //set each first item other color
         li:first-of-type{
             color:$tertiary-color;
             font-weight:bold;
@@ -251,7 +370,6 @@
     }
     .footerSocials{
         padding:25px;
-      
         img{
             width:34px;
             height:34px;
