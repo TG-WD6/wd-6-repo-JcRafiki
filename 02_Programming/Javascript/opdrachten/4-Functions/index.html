@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="pressButton()">Click me!</button>
+    <input type="text" id="inputText">
+    <span id="log"></span>
+
+
+</body>
+<script>
+
+
+    let input = document.getElementById('inputText');
+    let log = document.getElementById('log');
+
+    input.onchange = handleChange;
+
+
+    function pressButton(){
+        console.log("Hello World!");
+    }
+    
+    function handleChange(inputVar){
+        let result = inputVar.target.value * 2;
+        log.textContent = result + ' = ' + inputVar.target.value + '* 2';
+    }
+</script>
+</html>
