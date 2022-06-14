@@ -9,14 +9,37 @@
 <body>
 
     <button onclick="pressButton()">Click me!</button>
-    <input type="text" id="inputText">
+    <br>
+    <br>
+    <input type="text" id="inputText" onchange="handleChange(input)">
     <span id="log"></span>
+    <br>
+    <br>
+    <button onclick="changeColor()">Change Color!</button>
+    <p class="colorPara">Change this color!</p>
+    <br>
+    <br>
+    <ul>
+        <li>Hond</li>
+        <li>Kat</li>
+        <li>Muis</li>
+    </ul>
+    <p class="huisDier"></p>
+    <br>
+    <br>
+    <p class="firstLi"></p>
+    <br>
+    <br>
+    <button onclick="randomNumber()" >Random number!</button>
+    <br>
+    <br>
+    <input type="text" id="nameInput"><button onclick="printNameResult()">Compare Name</button>
+    <p id="resultNameCompare"></p>
 
 
 </body>
 <script>
-
-
+    // 4.1
     let input = document.getElementById('inputText');
     let log = document.getElementById('log');
 
@@ -29,7 +52,87 @@
     
     function handleChange(inputVar){
         let result = inputVar.target.value * 2;
-        log.textContent = result + ' = ' + inputVar.target.value + '* 2';
+        log.textContent = result + ' = ' + inputVar.target.value + ' * 2';
     }
+
+    // 4.2 1a
+    function changeColor(){
+        //fill array with colors
+        const colors = ["red", "green", "blue"];
+        //generate random number between 0 and array.lenght (0-2), rounded to whole numbers
+        const randomColor = Math.floor(Math.random() * colors.length );
+        //get class colorPara
+        let paragraph = document.getElementsByClassName("colorPara");
+        //set color to the color assigned by randomnumber (if random number is 0 = red, 1 = green, 3 = blue)
+        paragraph[0].style.color = colors[randomColor];
+    }
+
+    //4.2 1b
+    //get all li tags
+    const tagName = document.getElementsByTagName("li");
+    //fill paragraph with 2nd entry array
+    document.getElementsByClassName("huisDier")[0].innerHTML = tagName[1].innerHTML;
+
+    //4.2 1c
+    const firstLi = document.querySelector("li");
+    document.getElementsByClassName("firstLi")[0].innerHTML = "De waarde van de eerste LI op deze pagina is "+ firstLi.innerHTML+ ".";
+
+    //4.2 1d
+    //fill array with all li's on page
+    const allLi = document.querySelectorAll("li");
+    //log all li's value
+    let i = 0;
+    //loop through all li values
+    while(i < allLi.length){
+        console.log(allLi[i].innerHTML);
+        i++;
+    }
+
+    //4.2 1e-f
+    //get HTML value of class colorPara
+    let HTMLValue = document.getElementsByClassName("colorPara");
+    //log value of class colorPara
+    console.log(HTMLValue[0].innerHTML);
+    console.log(HTMLValue[0].innerText);
+
+    //4.3 2
+    function randomNumber(){
+        let x = 3;
+        console.log(Math.floor(Math.random() * x));
+    }
+
+    //4.3 3
+    //Math.min select lowest number from input
+    console.log(Math.min(2, 3, 1));
+    //Math.max select highest number from input
+    console.log(Math.max(2, 3, 1));
+
+    //4.4
+    let inputName = document.getElementById("nameInput");
+    let classNames = ["Bart", "Joost", "Junier", "Nathan"];
+
+    function compareName(name){
+        if(classNames.includes(inputName.value)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    let compareNameA = (name) => classNames.includes(name);
+    console.log(compareNameA("Bart"));
+
+
+    function printNameResult(){
+        if(compareName(name) == true){
+            document.getElementById("resultNameCompare").innerHTML = "Klasgenoot bestaat!";
+        }else{
+            document.getElementById("resultNameCompare").innerHTML = "Klasgenoot bestaat niet!";
+        }
+    }
+
+    let printNameResultA = () => compareNameA(inputName.value) == true;
+    console.log(printNameResultA());
+
 </script>
 </html>

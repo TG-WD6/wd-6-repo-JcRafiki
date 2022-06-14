@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+//Objects
+//1
+//object constructor
+
+// let objPet = new Object();
+//     objPet.name = "Rex"
+//     objPet.species = "Dog"
+//     objPet.age = "1"
+//     objPet.sex = "M"
+
+// //literal constructor
+// let litPet = {
+//     name : "Minoes",
+//     species : "Cat",
+//     age : "4",
+//     sex : "F"
+// }
+
+// //function constructor
+// function Pet(name, species, age, sex){
+//     this.name = name
+//     this.species = species
+//     this.age = age
+//     this.sex = sex
+// }
+
+// //singleton constructor
+// class sPet{
+//     constructor(name,species,age,sex){
+//         this.name = name
+//         this.species = species
+//         this.age = age
+//         this.sex = sex
+//         this.infoPet()
+//     }
+
+//     infoPet(){
+//         console.log(`${this.name} likes pets.`);
+//     }
+// }
+
+// const Rex = new Pet("Splinter");
+
+// console.log(Object.create(objPet));
+// console.log(Object.create(litPet));
+// console.log(Object.create(Pet));
+// console.log(Rex);
+
+// function People(name, age){
+//     this.name = name
+//     this.age = age
+// }
+
+
+// let person = new People("Eline", 29);
+//     person = new People("Joost", 29);
+// console.log(person);
+
+// const oPeople = {
+//     Tom: 24,
+//     Jan: 22,
+//     Lies: 11,
+//     Joost: 51,
+//     Bert: 23,
+//     Jantien: 55,
+//     Eline: 23,
+//     Lien: 32}
+
+// console.log(oPeople);
+
+// const arPeople = Object.keys(oPeople).map((key) => [String(key), oPeople[key]]);
+
+// const sortPeople = arPeople.sort((b, a) => a[1] - b[1]);
+// console.log(sortPeople);
+
+
+//6.2
+class Club{
+    constructor(name, type, members){
+        this.name = name
+        this.type = type
+        this.members = members
+        
+    }
+}
+
+
+class cInfo{
+    constructor(adress, tel, cPerson){
+        this.adress = adress
+        this.tel = tel
+        this.cPerson = cPerson
+    }
+}
+
+const clubs = [
+    {
+        "name": "ajax",
+        "type": "football",
+        "members": "2131",
+        "adress": "amsterdam",
+        "tel": "06123456789",
+        "cPerson": "willem"
+    },
+    {
+        "name": "feyenoord",
+        "type": "football",
+        "members": "21223",
+        "adress": "rotterdam",
+        "tel": "06987654321",
+        "cPerson": "jan"
+    },
+    {
+        "name": "groningen",
+        "type": "football",
+        "members": "21223",
+        "adress": "groningen",
+        "tel": "062182936",
+        "cPerson": "henk"
+    },
+    {
+        "name": "NEC",
+        "type": "football",
+        "members": "21223",
+        "adress": "nijmegen",
+        "tel": "063345522342",
+        "cPerson": "koos"
+    },
+    {
+        "name": "NAC",
+        "type": "football",
+        "members": "21223",
+        "adress": "breda",
+        "tel": "06987654321",
+        "cPerson": "toos"
+    }
+]
+
+clubs.forEach(object => {
+    console.log(object.name);
+})
+
+// const a = clubs.length;
+// for(let i=0; i< a; i++){
+//     const { name } = clubs[i];
+//     const { tel } = clubs[i];
+//     const { cPerson } = clubs[i];
+    
+//     console.log(name);
+//     console.log(tel);
+//     console.log(cPerson);
+// }
+
+
+
+//const { name } = clubs[0];
+
+// console.log(clubs);
+
+
+
+</script>
+</html>

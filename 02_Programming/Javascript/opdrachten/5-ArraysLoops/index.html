@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<div>Some Text</div>
+<div>Some Text</div>
+
+</body>
+<script>
+    // //5.1 1
+    // let numberArray = ["1","4","3","2","5","8","7","6","9","10"];
+    // console.log(numberArray);
+
+    // let fruitArray = ["Apple", "Strawberry", "Banana", "Pinapple", "Grape", "Pear"];
+    // console.log(fruitArray);
+
+    // console.log(fruitArray[0], fruitArray[1]);
+
+    // let randomNumber = numberArray[Math.floor(Math.random()*10)];
+    // let modulo = randomNumber % fruitArray.length;
+    // console.log(fruitArray[modulo]);
+
+    // fruitArray[0] = "Orange";
+    // console.log(fruitArray);
+
+    // [fruitArray[0], fruitArray[1]] = [fruitArray[1], fruitArray[0]];
+    // console.log(fruitArray); 
+
+
+    //5.2 1
+    //const dutchSports = ["Voetbal","Hockey","Schaatsen"];
+    // console.log(dutchSports.length);
+    // for(let i=0; i < dutchSports.length;i++){
+    //     console.log(dutchSports[i]);
+    // }
+
+    //5.2 2
+    // for(let index in dutchSports){
+    //     console.log(dutchSports[index]);
+    // }
+
+    // for(let a of dutchSports){
+    //     console.log(a);
+    // }
+
+    //5.2 3
+    // for(let x = 0; x <= 20; x++){
+    //     if(x % 2 == 0){
+    //         console.log(x);
+    //     }
+    // }
+
+    //5.2 4-5
+    // for (let y = 0; y < 3; y++) {
+    //     switch (y) {
+    //         case 0:
+    //             for (let a = 1; a <= 10; a++) {
+    //                 console.log(a)
+    //             }
+    //             break;
+    //         case 1:
+    //             for (let a = 1; a <= 20; a++) {
+    //                 if (a % 2 == 0) {
+    //                     console.log(a)
+    //                 }
+    //             }
+    //             break;
+    //         case 2:
+    //             for (let a = 3; a <= 30; a += 3) {
+    //                 console.log(a);
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
+    //5.2 6
+    // let fibArray = [0,1];
+    // let a = 0;
+    // let b = 1;
+    // for(let i=0; i <=47; i++){
+    //     let newNumber =  fibArray[a] + fibArray[b];
+    //     fibArray.push(newNumber);
+    //     a++;
+    //     b++;
+    // }
+    // console.log(fibArray);
+
+    //5.2 7
+    // let sortArray = [2,7,5,10,4,9,3,1,8,6];
+    // //zolang n kleiner is dan array.lenght
+    // for(let n = 0; n < sortArray.length; n++){
+    //     //en zolang i kleiner is dan array.lenght -1
+    //     for(let i = 1; i < sortArray.length -n; i++){
+    //         //als array-1 (de waarde ervoor) groter is dan array.i (huidige waarde)
+    //         if(sortArray[i-1] > sortArray[i]){
+    //             //sla array op in temp
+    //             let temp = sortArray[i];
+    //             //verwissel kleiner getal (positie i) met groter getal (positie i-1)
+    //             sortArray[i] = [sortArray-1];
+    //             //oude positie wordt nieuwe positie
+    //             sortArray[i] = sortArray[i-1];
+    //             //sla nieuwe array op in temp
+    //             sortArray[i-1] = temp;
+    //             //herhaal
+    //         }
+    //     }
+    // }
+    // console.log(sortArray);
+
+    //5.3
+    // const dutchSports = ["Voetbal", "Hockey", "Schaatsen"];
+    // //1
+    // dutchSports.push("Zeilen", "Zwemmen");
+
+    // //2
+    // dutchSports.unshift("Volleybal");
+
+    //3
+    //create array ballSports en key
+    // const ballSports = [];
+
+    // //for length dutchSports
+    // for (let i = 0; i < dutchSports.length; i++) {
+    //     //if entry at key i includes bal
+    //     if (dutchSports[i].includes("bal")) {
+    //         //push result in ballSports
+    //         ballSports.push(dutchSports[i]);
+    //     }
+    // }
+
+    // dutchSportsM = dutchSports.filter(function (val) {
+    //     return ballSports.indexOf(val) == -1;
+    // });
+
+    // //dutchSportsM = dutchSports.filter(val => !ballSports.includes(val));
+    // console.log(dutchSportsM);
+
+    // const sportsLenght = [];
+    // for(let p = 0; p < dutchSportsM.length; p++){
+    //     sportsLenght.push(dutchSportsM[p].length);
+    // }
+    // console.log(sportsLenght);
+    
+    //5.4
+    //1
+    // let arrayLike = document.querySelectorAll('div')
+    // console.log(arrayLike);
+    // const newArray = Array.from(arrayLike);
+    // console.log(newArray);
+
+    //1 filter()
+     const words = ['Blub','Ik','Ben','Een','Vis','Blup','Blup'];
+    // const result = words.filter(function(val){
+    //     return val == 'Blub';
+    // });
+    // console.log(result);
+
+    //2 find() find match of val
+    // const result = words.find(function(val){
+    //     return val == 'Vis';
+    // });
+    // console.log(result);
+
+    //3 some() if some meet criteria return true/false
+    // const result = words.some(function(val){
+    //     return val == 'Ik';
+    // });
+    // console.log(result);
+
+    //4 every() if all pass condition return true/false
+    // const result = words.every(function(val){
+    //     return typeof element !== 'number';
+    // });
+    // console.log(result);
+
+    //5 includes() if includes 
+    //const result = words.includes('Blup');
+
+    // console.log(result);
+
+
+</script>
+
+</html>
