@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="text" id="name2"><button onclick="generate()">Maak zin</button>
+</body>
+
+<script>
+
+    const naam1 = document.getElementById('name');
+    const naam2 = document.getElementById('name2');
+    const zin = ['has murdered', 'has kissed', 'has hit'];
+
+
+    function generate(){
+        let r = document.createTextNode(naam1.value + " " + zin[Math.floor(Math.random() * zin.length)] + " " + naam2.value);
+        let newDiv = document.createElement('div');
+        newDiv.appendChild(r);
+        document.body.appendChild(newDiv);
+    }
+
+</script>
+</html>

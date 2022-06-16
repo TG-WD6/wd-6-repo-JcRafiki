@@ -37,7 +37,14 @@
 //     this.sex = sex
 // }
 
-// //singleton constructor
+// let singlePet = new function(){
+//     this.name = "Nemo",
+//     this.species = "vis",
+//     this.age = 10,
+//     this.sex = "M"
+// }
+
+// //class constructor
 // class sPet{
 //     constructor(name,species,age,sex){
 //         this.name = name
@@ -88,23 +95,44 @@
 
 
 //6.2
-class Club{
-    constructor(name, type, members){
-        this.name = name
-        this.type = type
-        this.members = members
-        
-    }
-}
+// class Info{
+//     constructor(name,type,members,adress,tel,cPerson){
+//         this.adress = adress
+//         this.tel = tel
+//         this.cPerson = cPerson
+//     }
+// }
+
+// class Club extends Info{
+//     constructor(name,type,members,adress,tel,cPerson){
+//         super(...arguments)
+//         this.name = name
+//         this.type = type
+//         this.members = members
+//     }
+// }
 
 
-class cInfo{
-    constructor(adress, tel, cPerson){
-        this.adress = adress
-        this.tel = tel
-        this.cPerson = cPerson
-    }
-}
+
+// const a = new Club("ajax", "football", "2131","amsterdam","06123456789", "willem");
+// const b = new Club("feyenoord", "football", "21223","rotterdam","06987654321", "jan");
+// const c = new Club("groningen", "football", "21223","grunn","062182936", "henk");
+// const d = new Club("NEC", "football", "21223","nijmegen","063345522342", "jan");
+// const e = new Club("NAC", "football", "21223","breda","06987654321", "toos");
+
+// const clubArray = [];
+
+// clubArray[''] = clubArray.push(a,b,c,d,e);
+
+// console.log(clubArray);
+
+// clubArray.forEach(object => {
+//     console.log(object.name);
+//     console.log(object.tel);
+//     console.log(object.cPerson);
+// })
+
+
 
 const clubs = [
     {
@@ -149,9 +177,11 @@ const clubs = [
     }
 ]
 
-clubs.forEach(object => {
-    console.log(object.name);
-})
+// clubs.forEach(object => {
+//     console.log(object.name);
+//     console.log(object.tel);
+//     console.log(object.cPerson);
+// })
 
 // const a = clubs.length;
 // for(let i=0; i< a; i++){
@@ -166,10 +196,45 @@ clubs.forEach(object => {
 
 
 
-//const { name } = clubs[0];
+// const { name } = clubs[0];
 
 // console.log(clubs);
 
+
+
+class Club{
+    constructor(name, type, members, adress, tel, cPerson){
+        this.name = name,
+        this.type = type,
+        this.members = members,
+        this.ContactInfo = new ContactInfo(adress, tel, cPerson)
+    }
+}
+
+class ContactInfo{
+    constructor(adress, tel, cPerson){
+        this.adress = adress,
+        this.tel = tel,
+        this.cPerson = cPerson
+    }
+}
+
+const a = new Club("ajax", "football", "2131","amsterdam","06123456789", "willem");
+const b = new Club("feyenoord", "football", "21223","rotterdam","06987654321", "jan");
+const c = new Club("groningen", "football", "21223","grunn","062182936", "henk");
+const d = new Club("NEC", "football", "21223","nijmegen","063345522342", "jan");
+const e = new Club("NAC", "football", "21223","breda","06987654321", "toos");
+
+const clubA = [a,b,c,d,e];
+
+for(let i=0; i<clubA.length;i++){
+    console.log(clubA[i].name);
+    console.log(clubA[i].ContactInfo.adress);
+    console.log(clubA[i].ContactInfo.cPerson);
+}
+
+
+console.log(clubA[0]);
 
 
 </script>

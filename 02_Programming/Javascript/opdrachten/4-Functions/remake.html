@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<button onclick="helloWorld()">Click me!</button>
+<input type ="text" id="inputText" oninput="logText(this)" class="textfield">
+<div>Hallo</div>
+<button onclick="randomNumber()">Random Number</button>
+</body>
+<script>
+
+function helloWorld(){
+    console.log("Hello World!");
+}
+
+let inputText = document.getElementById('inputText');
+function logText(inputText){
+    let result = inputText.value;
+    console.log(result);
+}
+
+randomNumber = () => console.log(Math.floor(Math.random()* 3));
+
+
+    let nameAr = ['Jan', 'Piet', 'Klaas'];
+
+nameCheck = (name) => nameAr.includes(name);
+nameShow = (name) => nameCheck(name) == true ? document.querySelector('div').innerHTML = "Klasgenoot bestaat!" : document.querySelector('div').innerHTML = "Klasgenoot bestaat niet!";
+console.log(nameShow('Jan'));
+
+// console.log(document.getElementsByClassName('textfield'));
+// console.log(document.getElementsByTagName('input'));
+// console.log(document.querySelector('div'));
+// console.log(document.querySelectorAll('input'));
+// console.log(document.querySelector('div').innerHTML);
+// console.log(document.querySelector('div').innerText);
+// console.log(Math.min(3,2,1));
+// console.log(Math.max(3,2,1));
+// console.log(nameCheck('Piet'));
+
+
+let array = ["Blink", 182];
+for(const index in array){
+    console.log(index);
+}
+
+for(const item of array){
+    console.log(item);
+}
+
+
+
+</script>
+</html>

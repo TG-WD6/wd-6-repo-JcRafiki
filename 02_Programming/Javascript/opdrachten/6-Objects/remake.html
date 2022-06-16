@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+let objPet = new Object();
+    objPet.name = "Rex"
+    objPet.species = "Dog"
+    objPet.age = "1"
+    objPet.sex = "M"
+
+//literal constructor
+let litPet = {
+    name : "Minoes",
+    species : "Cat",
+    age : "4",
+    sex : "F"
+}
+
+//function constructor
+function Pet(name, species, age, sex){
+    this.name = name
+    this.species = species
+    this.age = age
+    this.sex = sex
+}
+
+//singleconstructor
+let singlePet = new function(){
+    this.name = "Nemo",
+    this.species = "vis",
+    this.age = 10,
+    this.sex = "M"
+}
+
+//Class based constructor
+class sPet{
+    constructor(name,species,age,sex){
+        this.name = name
+        this.species = species
+        this.age = age
+        this.sex = sex
+        this.infoPet()
+    }
+}
+
+const newObjPet = Object.create(objPet);
+const newlitPet = Object.create(litPet);
+const newPet = Object.create(Pet);
+const newSinglePet = Object.create(singlePet);
+const newSPet = Object.create(sPet);
+// const newSpet = Object.create(sPet);
+// console.log(newObjPet);
+// console.log(newlitPet);
+// console.log(newPet);
+// console.log(newSinglePet);
+// console.log(newSPet);
+
+
+const persons = [
+    {
+        Name: "Jan",
+        Age: 10
+    },
+    {
+        Name: "Kees",
+        Age: 35
+    },
+    {
+        Name: "Koos",
+        Age: 18
+    },
+    {
+        Name: "Tom",
+        Age: 47
+    },
+    {
+        Name: "Dirk",
+        Age: 36
+    },
+    {
+        Name: "Klaas",
+        Age: 25
+    },
+    {
+        Name: "Piet",
+        Age: 11
+    },
+    {
+        Name: "Joost",
+        Age: 13
+    },
+    {
+        Name: "Jos",
+        Age: 12
+    },
+]
+
+    const sort = persons.sort((a,b) => b.Age - a.Age);
+
+    console.log(sort);
+
+</script>
+</html>
