@@ -219,23 +219,29 @@ class ContactInfo{
     }
 }
 
-const a = new Club("ajax", "football", "2131","amsterdam","06123456789", "willem");
+const a = new Club("ajax", "football", "2131","amsterdam","06123456789", "jan");
 const b = new Club("feyenoord", "football", "21223","rotterdam","06987654321", "jan");
 const c = new Club("groningen", "football", "21223","grunn","062182936", "henk");
-const d = new Club("NEC", "football", "21223","nijmegen","063345522342", "jan");
+const d = new Club("NEC", "football", "21223","nijmegen","063345522342", "bob");
 const e = new Club("NAC", "football", "21223","breda","06987654321", "toos");
 
 const clubA = [a,b,c,d,e];
 
+// for(let i=0; i<clubA.length;i++){
+//     console.log(clubA[i].name,clubA[i].ContactInfo.adress,clubA[i].ContactInfo.cPerson);
+// }
+
+
+const newContact = new ContactInfo('kerkstraat1', '06123456789','piet');
+clubA[0].ContactInfo = newContact;
+//clubA[1].ContactInfo = new ContactInfo('kerkstraat1', '06123456789','piet');
+
+
+console.table(clubA);
+//console.log(clubA[0].ContactInfo.cPerson, clubA[1].ContactInfo.cPerson);
+
 for(let i=0; i<clubA.length;i++){
-    console.log(clubA[i].name);
-    console.log(clubA[i].ContactInfo.adress);
-    console.log(clubA[i].ContactInfo.cPerson);
+    console.log(clubA[i].name,clubA[i].ContactInfo.adress,clubA[i].ContactInfo.cPerson);
 }
-
-
-console.log(clubA[0]);
-
-
 </script>
 </html>
