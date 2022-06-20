@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+class Puzzle {
+    firstPile = [];
+    secondPile = [];
+    thirdPile = [];
+    constructor(size) {
+        this.size = size;
+        for (let index = size; index > 0; index--) {
+            this.firstPile.push(index)
+        }
+    }
+    move(origin, target) {
+        const itemToMove = origin.pop()
+        if (target.find(item => item < itemToMove)) {
+            origin.push(itemToMove)
+            return
+        }
+        target.push(itemToMove)
+    }
+    solve(firstPile, secondPile, thirdPile) {
+
+        if(thirdPile.length === this.size){
+            console.table(this);
+        }else{
+            if(thirdPile[thirdPile.length-1] != null){
+                if(firstPile[firstPile.length-1] > thirdPile[thirdPile.length-1]){
+                    this.move(firstPile, secondPile);
+                }
+                if(firstPile[firstPile.length-1] > secondPile[secondPile.length-1] && firstPile[firstPile.length-1] > thirdPile[thirdPile.length-1]){
+                    this.move(thirdPile, secondPile);
+                }
+                if(firstPile[firstPile.length-1] == null){
+                    this.move(secondPile, firstPile);
+                }
+                if(secondPile[secondPile.length-1] > firstPile[firstPile.length-1] && secondPile[secondPile.length-1] < thirdPile[thirdPile.length-1]){
+                    this.move(secondPile, thirdPile);
+                }
+                if(thirdPile[thirdPile.length-1] > firstPile[firstPile.length-1]){
+                    this.move(firstPile, thirdPile)
+                }
+            }
+            else{
+                this.move(firstPile,thirdPile);
+            }   
+            this.solve(firstPile, secondPile, thirdPile);
+        }
+            console.table(this);
+     }
+}
+
+
+// firstPile[firstPile.length-1]
+// secondPile[secondPile.length-1]
+// thirdPile[thirdPile.length-1]
+
+
+const newP = new Puzzle(3);
+
+newP.solve(newP.firstPile, newP.secondPile, newP.thirdPile);
+
+
+</script>
+</html>
