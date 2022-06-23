@@ -35,6 +35,7 @@ class Puzzle {
             console.table(this);
         }else{
             if(thirdPile[thirdPile.length-1] != null){
+                //console.table(this);
                 if(firstPile[firstPile.length-1] > thirdPile[thirdPile.length-1]){
                     this.move(firstPile, secondPile);
                 }
@@ -50,13 +51,14 @@ class Puzzle {
                 if(thirdPile[thirdPile.length-1] > firstPile[firstPile.length-1]){
                     this.move(firstPile, thirdPile)
                 }
+                
             }
             else{
                 this.move(firstPile,thirdPile);
             }   
             this.solve(firstPile, secondPile, thirdPile);
+            
         }
-            console.table(this);
      }
 }
 
