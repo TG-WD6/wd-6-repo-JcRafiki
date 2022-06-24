@@ -1,0 +1,19 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    background-color: $primary-color;
+    overflow-y: scroll;
+    color:$secondary-color;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color:$secondary-color;
+}
+a:hover{
+    color:$tertiary-color;
+}

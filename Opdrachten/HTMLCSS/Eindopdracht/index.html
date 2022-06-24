@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techgrounds Final</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="root">
+        <nav class="navbar">
+        <img class="navbar__logo" src="./img/TG-logo.png">
+        <input type="checkbox">
+        <div class="navbar__toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navbar__list">
+            <li><img src="./img/basic_home.svg"><a class="navbar__link" href="#">Home</a></li>
+            <li><img src="./img/basic_bolt.svg"><a class="navbar__link" href="#">Popular</a></li>
+            <li><img src="./img/basic_mail.svg"><a class="navbar__link" href="#">Contact</a></li>
+            <li><img src="./img/basic_key.svg"><a class="navbar__link" href="#loginScreen">Login</a></li>
+        </ul>    
+        </nav>
+        <header class="header">
+            <div class="searchBarContainer">
+                <form>
+                    <input typ="text" placeholder="Zoekterm">
+                    <button type="button" class="searchButton">&#128269</button>
+                </form>
+            </div>
+        </header>
+        <content class="content">
+            <loginOverlay>
+                <div id="loginScreen">
+                    <a href="#" class="cancel">x</a>
+                    <img src="./img/basic_lock.svg">
+                    <form>
+                        <fieldset>
+                            <legend>Login</legend>
+                            <input type="text" placeholder="Email">
+                            <input type="password" placeholder="Password">  
+                            <p><span><input type="checkbox" id="rememberMe"><label for="rememberMe">Remember Me</label></span>
+                            <a href="#">Forgot Password?</a></p>
+                            <button type="button">LOGIN</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="cover"></div>
+            </loginOverlay>
+            <div class="accordionContainer">
+                <button class="accordionBtn">ProductCard</button>
+                <div class="accordionPanel">
+                    <div class="productCardContainer">
+                        <div class="productCardTile">
+                            <img class="productCardImg">
+                            <div class="productCardDesc">
+                                techgrounds<br>
+                                <span class="productCardTitle">techgrounds title</span><br>
+                                <span class="productCardDescTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eros diam, tincidunt ut felis a, condimentum maximus elit. Nullam eget leo in dolor vulputate condimentum. </span>
+                            </div>
+                            <div class="productCardPrice">
+                                <div class="productCardPriceContainer">
+                                    <span class="productCardPriceWhole">99</span>
+                                    <span class="productCardPriceDec"><sup>99</sup></span>
+                                </div>
+                                <div class="productCardOrder"><p>Voor 23:59 besteld, morgen in huis</p>
+                                    <img src="./img/winkelmandje.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productCardContainer">
+                        <div class="productCardTile">
+                            <img class="productCardImg">
+                            <div class="productCardDesc">
+                                techgrounds<br>
+                                <span class="productCardTitle">techgrounds title</span><br>
+                                <span class="productCardDescTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eros diam, tincidunt ut felis a, condimentum maximus elit. Nullam eget leo in dolor vulputate condimentum. </span>
+                            </div>
+                            <div class="productCardPrice">
+                                <div class="productCardPriceContainer">
+                                    <span class="productCardPriceWhole">99</span>
+                                    <span class="productCardPriceDec"><sup>99</sup></span>
+                                </div>
+                                <div class="productCardOrder"><p>Voor 23:59 besteld, morgen in huis</p>
+                                    <img src="./img/winkelmandje.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productCardContainer">
+                        <div class="productCardTile">
+                            <img class="productCardImg">
+                            <div class="productCardDesc">
+                                techgrounds<br>
+                                <span class="productCardTitle">techgrounds title</span><br>
+                                <span class="productCardDescTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eros diam, tincidunt ut felis a, condimentum maximus elit. Nullam eget leo in dolor vulputate condimentum. </span>
+                            </div>
+                            <div class="productCardPrice">
+                                <div class="productCardPriceContainer">
+                                    <span class="productCardPriceWhole">99</span>
+                                    <span class="productCardPriceDec"><sup>99</sup></span>
+                                </div>
+                                <div class="productCardOrder"><p>Voor 23:59 besteld, morgen in huis</p>
+                                    <img src="./img/winkelmandje.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="accordionBtn">Formulier</button>
+                <div class="accordionPanel">
+                    <div class="SignUpContainer">
+                    <form class="formSignUp">
+                       <span class="formSignUpWelcome"> Nieuw hier?<br>
+                        Maak hier een nieuw account aan.<br><br>
+                       </span>
+                        <input type="text" placeholder="Voornaam" class="formSignUpField"><br>
+                        <input type="text" placeholder="Achternaam" class="formSignUpField"><br>
+                        <input type="text" placeholder="Postcode" class="formSignUpFieldSmall"> <input type="text" placeholder="Huisnummer" class="formSignUpFieldSmall"> <input type="text" placeholder="Toev." size="6" class="formSignUpFieldSmall"><br>
+                        <input type="text" placeholder="E-mail" class="formSignUpField"><br>
+                        <input type="password" placeholder="Wachtwoord" class="formSignUpField"><br>
+                        <input type="text" placeholder="Telefoonnummer" class="formSignUpField"><br><br>
+                        <button type="button"><span>Registreer</span></button>
+                    </form>    
+                </div>                
+                </div>
+            </div>
+        </content>
+        <footer class="footer">
+            <div class="footerContainer">
+                <div class="footerSitemap">
+                    <ul>
+                        <li>Klantenservice</li>
+                        <li>Contact opnemen</li>
+                        <li>Bestellen & Leveren</li>
+                        <li>Betalen</li>
+                        <li>Retourneren</li>
+                        <li>Garantie & Reparatie</li>
+                    </ul>
+                    <ul>
+                        <li>Winkels</li>
+                        <li>Almere</li>
+                        <li>Amstelveen</li>
+                        <li>Den Haag</li>
+                        <li>Eindhoven</li>
+                        <li>Groningen</li>
+                        <li>Maastricht</li>
+                        <li>Rotterdam</li>
+                        <li>Utrecht</li>
+                    </ul>
+                    <ul>
+                        <li>Ontdek</li>
+                        <li>Inspiratie</li>
+                        <li>Merken</li>
+                        <li>Outlet</li>
+                        <li>Acties</li>
+                        <li>&nbsp;</li>
+                        <li>Damesmode</li>
+                        <li>Herenmode</li>
+                        <li>Kindermode</li>
+                        <li>Wonen</li>
+                        <li>Cosmetica</li>
+                    </ul>
+                </div>
+                <div class="footerSocials">
+                    Wil je ons volgen?
+                    <br>
+                    <img src="./img/fb.png">
+                    <img src="./img/insta.png">
+                    <img src="./img/linkedin.png">
+                    <img src="./img/twitter.png">
+                </div>
+            </div> 
+        </footer>
+    </div>
+    <script src="./assets/main.js"></script>
+</body>
+</html>

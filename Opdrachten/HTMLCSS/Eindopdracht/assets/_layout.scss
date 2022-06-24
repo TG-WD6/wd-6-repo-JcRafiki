@@ -1,0 +1,201 @@
+//rootcontainer
+.root{
+    display:grid;
+    height:100vh;
+    grid-template-rows: auto auto 1fr auto;
+    font-family: $primary-font;
+}
+
+//navbar
+.navbar{
+    grid-row: 1;
+    display:flex;
+    position:sticky;
+    top:0;
+    max-height:70px;
+    padding:10px;
+    background-color:$primary-color;
+    justify-content: space-between;
+    z-index:3;
+    &__logo{
+        width:200px;
+    }
+    //mobileview if viewport is smaller than 500px    
+    @media (max-width:$screen-size-max) {
+        //hidden checkbox for hamburger menu
+        input[type=checkbox]{ 
+            position:absolute;
+            right:6px;
+            height:50px;
+            width:35px;
+            z-index:4;
+            opacity:0;
+            padding:0;
+            cursor: pointer;
+            //hide menu links
+            & ~  ul {
+                position:absolute;
+                top:50px;
+                left:0;
+                flex-direction: column;
+                width:100%;
+                display:none;
+                padding:5px;
+                background-color: $secondary-color;
+                //hyperlink markup
+                & li {
+                    a{
+                        text-decoration: none;
+                        color:$primary-color;
+                    }
+                    a:hover{
+                        color:$tertiary-color;
+                    }
+                }
+                //set menu icons dimensions
+                img{
+                    width:25px;
+                    margin-right:10px;
+                }
+            }
+            //hamburgermenu animation when checkbox is checked
+            &:checked {
+                & ~ div span:nth-child(2){
+                    //remove 2nd layer
+                    width:0;
+                }
+                & ~ div span:nth-child(1){
+                    //bring down first layer
+                    transition-delay: 0.3s;
+                    transform:translateY(15px);
+                }
+                & ~ div span:nth-child(3){
+                    //bring up 3rd layer and rotate
+                    transition-delay: 0.3s;
+                    transform:translateY(-13px)
+                              rotate(90deg);
+                }
+                & ~ div {
+                    //rotate parent div 
+                    transition: all 0.3s cubic-bezier(.25,.01,.75,1);
+                    transition-delay: 0.7s;
+                    transform: rotate(315deg);
+                }
+                & ~ ul {
+                    //bring down parent div menu
+                    animation: growMainMenu 1000ms ease-in-out;
+                    transform-origin: top;
+                    display:block;
+                    //bring in link rows after eachother
+                    @for $num from 1 through $menu-link-count{
+                        & li:nth-child(#{$num}) {
+                            //set delay and origin
+                            animation: growMenu 1000ms ($num * 60ms) ease-in-out;
+                            transform-origin: right;
+                            display:block;
+                        }
+                    }                
+                }
+            }
+        }
+        //hamburgermenu toggle
+        &__toggle{
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between;
+            align-items: center;
+            width:35px;
+            height:35px;
+            margin-top:10px;
+            //menu layers
+            span {
+                display:block;
+                width:25px;
+                height:5px;
+                border-radius: 0.15em;
+                background-color:$tertiary-color;
+                transition: all 0.3s linear;
+                margin:1px;
+            }
+        }
+    }
+    //desktopview if vieport is wider than 501px;
+    @media (min-width:$screen-size-min) {
+        //disable checkbox
+        input {
+            display:none;
+        }
+        //menulink row
+        &__list{
+            margin:0;
+            padding:0;
+            list-style-type: none;
+            display:flex;
+            //menu link markup
+            li{
+                padding: 10px 15px;
+                a{
+                    text-decoration: none;
+                    color:$tertiary-color;
+                }
+                a:hover{
+                    color:$secondary-color;
+                }
+                img {
+                    display:none;
+                }
+            }
+        }
+    }
+}
+//header div
+.header{
+    grid-row:2;
+    padding:3px;
+    display:flex;
+    flex-direction: row;
+}
+//content div
+.content{
+    grid-row:3;
+}
+//footer div
+.footer{
+    grid-row:4;
+}
+
+//menu animations
+//main menu div
+@keyframes growMenu {
+    //hide all at 0%
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    //overshoot at 80% for bounce effect
+    80% {
+        transform: scaleX(1.1);
+    }
+    //show normal at 100%
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+  }
+//link rows
+@keyframes growMainMenu {
+    //hide all at 0%
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    //overshoot at 80% for bounce effect
+    80% {
+        transform: scaleY(1.1);
+    }
+    //show normal at 100%
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+  }
