@@ -1,44 +1,89 @@
-body{
-    margin:0;
+body {
+    margin: 0;
     box-sizing: border-box;
 }
 
-.root{
-    display:grid;
-    height:100vw;
+.root {
+    display: grid;
+    height: 100vw;
     grid-template-rows: 40px 1fr;
 }
 
-.toolbar{
+.toolbar {
     position: sticky;
     grid-row: 1;
     width: 100%;
     text-align: center;
     vertical-align: auto;
-    margin:auto;
-    border:1px solid red;
-    top:0;
-    form{
-        padding:10px;
+    margin: auto;
+    border: 1px solid red;
+    top: 0;
+
+    form {
+        padding: 10px;
     }
-    
+
 }
 
-.dex{
+.dex {
     grid-row: 2;
-    height:fit-content;
-    display:flex;
+    height: fit-content;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-top:5px;
+    padding-top: 5px;
     align-items: center;
     justify-content: center;
 }
 
-.tile{
-    display:flex;
-    width:400px;
+.tile {
+    display: flex;
+    width: 400px;
     height: 400px;
     border-radius: 15%;
-    border:1px solid black;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+
+    div.pokeContainer {
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 50px 175px 125px;
+        background-color: lightgrey;
+        height: 350px;
+        width: 350px;
+
+        .pokeNameContainer {
+            border: 1px solid red;
+            grid-column: span 2;
+            grid-row: 1;
+        }
+
+        .pokeTypeContainer {
+            border: 1px solid blue;
+            grid-column: span 2;
+        }
+
+        .pokeStatsLeft {
+            padding:0px;
+            border: 1px solid red;
+            span{
+                width:100%;
+                display: inline-block;
+                text-align:justify ;
+            }
+        }
+
+        .pokeStatsRight {
+            padding:0px;
+            border: 1px solid red;
+            span{
+                width:100%;
+                display: inline-block;
+                text-align:justify ;
+            }
+        }
+    }
+
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" defer></script>
     <link rel="stylesheet" href="main.css">
 </head>
 
@@ -15,27 +15,48 @@
         <div class="toolbar">
             <form>
                 <button id="clear">Clear</button>
-                <input type="text" size="10">
+                <input type="text" size="10" disabled>
                 <select name="pokeGen" id="pokeGen">
-                    <option>Gen 1</option>
-                    <option>Gen 2</option>
-                    <option>Gen 3</option>
-                    <option>Gen 4</option>
-                    <option>Gen 5</option>
-                    <option>Gen 6</option>
-                    <option>Gen 7</option>
+                    <option value="gen1">Gen 1</option>
+                    <option value="gen2">Gen 2</option>
+                    <option value="gen3">Gen 3</option>
+                    <option value="gen4">Gen 4</option>
+                    <option value="gen5">Gen 5</option>
+                    <option value="gen6">Gen 6</option>
+                    <option value="gen7">Gen 7</option>
                 </select>
                 <button name="genDex" id="genDex">Generate PokeDex</button>
             </form>
         </div>
-    <div class="dex">
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
+        <div class="dex">
+            <div class="tile">
+                <div class="pokeContainer">
+                    <div class="pokeNameContainer">
+                        <span class="pokeName">Bulbasaur</span>
+                        <span class="pokeImg">Image</span>
+                        <span class="pokeId">#001</span>
+                    </div>
+                    <div class="pokeTypeContainer">
+                        <span class="pokeTypeGrass">Grass</span>
+                    </div>
+                    <div class="pokeStatsLeft">
+                        <span>ATK:100</span>
+                        <br>
+                        ATK:100
+                    </div>
+                    <div class="pokeStatsRight">
+                        <ul>
+                            <li>HP: 100</li>
+                            <li>ATK: 100</li>
+                            <li>DEF: 100</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
 </body>
 
 </html>
