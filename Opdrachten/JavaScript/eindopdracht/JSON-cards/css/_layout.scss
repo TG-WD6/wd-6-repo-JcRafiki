@@ -1,0 +1,44 @@
+body{
+    margin:0;
+    box-sizing: border-box;
+}
+
+.root{
+    display:grid;
+    height:100vw;
+    grid-template-rows: 40px 1fr;
+}
+
+.toolbar{
+    position: sticky;
+    grid-row: 1;
+    width: 100%;
+    text-align: center;
+    vertical-align: auto;
+    margin:auto;
+    border:1px solid red;
+    top:0;
+    form{
+        padding:10px;
+    }
+    
+}
+
+.dex{
+    grid-row: 2;
+    height:fit-content;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top:5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile{
+    display:flex;
+    width:400px;
+    height: 400px;
+    border-radius: 15%;
+    border:1px solid black;
+}
