@@ -13,9 +13,9 @@
 <body>
     <div class="root">
         <div class="toolbar">
+            <button id="clear">Clear</button>
             <form>
-                <button id="clear">Clear</button>
-                <input type="text" size="10" disabled>
+                <input type="text" id="current" size="15" disabled>
                 <select name="pokeGen" id="pokeGen">
                     <option value="gen1">Gen 1</option>
                     <option value="gen2">Gen 2</option>
@@ -29,32 +29,6 @@
             </form>
         </div>
         <div class="dex">
-            <div class="tile">
-                <div class="pokeContainer">
-                    <div class="pokeNameContainer">
-                        <span class="pokeName">Bulbasaur</span>
-                        <span class="pokeImg">Image</span>
-                        <span class="pokeId">#001</span>
-                    </div>
-                    <div class="pokeTypeContainer">
-                        <span class="pokeTypeGrass">Grass</span>
-                    </div>
-                    <div class="pokeStatsLeft">
-                        <span>ATK:100</span>
-                        <br>
-                        ATK:100
-                    </div>
-                    <div class="pokeStatsRight">
-                        <ul>
-                            <li>HP: 100</li>
-                            <li>ATK: 100</li>
-                            <li>DEF: 100</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
         </div>
     </div>
 </body>
