@@ -6,8 +6,9 @@ fetch(json_url)
     })
     .then(function (pokemon) {
         getPokemon(pokemon);
+    }).catch(() =>{
+        console.log('Failed to load json');
     })
-
 
 function getPokemon(pokemon) {
     //pokeGens
@@ -56,7 +57,6 @@ function getPokemon(pokemon) {
             case 'gen7':
                 genPicked = 809;
                 break;
-
             default:
                 break;
         }
@@ -202,7 +202,5 @@ function pokeStatsGen(pokemon, pokeStatsLeft, pokeStatsRight, i) {
             pokeStatsRight.appendChild(pokeStats);
             pokeStatsRight.appendChild(pokeStatsVal);
         }
-
     }
-
 }
