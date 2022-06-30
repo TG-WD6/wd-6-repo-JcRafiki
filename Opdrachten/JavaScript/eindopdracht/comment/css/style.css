@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: bisque;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentSection {
+  border: 1px solid black;
+  width: 50vw;
+}
+.commentSection .comment {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  grid-template-rows: 1;
+}
+.commentSection .comment .commentUser {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid blue;
+}
+.commentSection .comment .commentMsg {
+  grid-column: 2;
+  grid-row: 1;
+  border: 1px solid pink;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 25px 1fr 25px;
+  padding: 5px;
+}
+.commentSection .comment .commentMsg .commentReplyLink {
+  background-color: blue;
+}
+.commentSection .comment .commentMsg .commentMsgContent {
+  background-color: lightblue;
+}
+.commentSection .comment .commentMsg .commentReplyBtn {
+  text-align: right;
+}
+
+.commentDraft {
+  border: 1px solid red;
+  width: 50vw;
+}
+.commentDraft .cancelReply {
+  float: right;
+}
+.commentDraft textarea {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

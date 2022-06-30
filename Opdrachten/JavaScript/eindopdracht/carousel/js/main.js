@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll('[data-carousel-button]');
+console.log(buttons);
 
 buttons.forEach(button => {
     button.addEventListener('click', () =>{

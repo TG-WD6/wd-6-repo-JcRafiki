@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.commentSection {
+    border: 1px solid black;
+    width: 50vw;
+
+    .comment {
+        display: grid;
+        grid-template-columns: 145px 1fr;
+        grid-template-rows: 1;
+
+        .commentUser {
+            grid-column: 1;
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border: 1px solid blue;
+        }
+
+        .commentMsg {
+            grid-column: 2;
+            grid-row: 1;
+            border: 1px solid pink;
+            background-color: white;
+            display:grid;
+            grid-template-columns: 1;
+            grid-template-rows: 25px 1fr 25px;
+            padding:5px;
+
+            .commentReplyLink{
+                background-color: blue;
+            }
+
+            .commentMsgContent{
+                background-color: lightblue;
+            }
+
+            .commentReplyBtn{
+                text-align:right;
+            }
+        }
+    }
+
+}
+
+.commentDraft {
+    border: 1px solid red;
+    width:50vw;
+    
+    .replyTo{
+
+    }
+
+    .cancelReply{
+        float:right;
+    }
+
+    textarea{
+        width:100%;
+    }
+}
