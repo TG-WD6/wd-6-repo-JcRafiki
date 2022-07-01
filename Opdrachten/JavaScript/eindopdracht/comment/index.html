@@ -13,7 +13,7 @@
 <body>
     <div class="root">
         <div class="commentSection" data-comment-section>
-            <div class="comment" id="comment1" data-comment-id>
+                <div class="comment" id="comment1" data-comment-id>
                 <div class="commentUser">
                     <span class="commentUserAvatar"><img src="img/025.png"></span>
                     <span class="commentUserName" data-username>username</span>
@@ -31,7 +31,7 @@
                     <span class="commentUserMsgId" data-msgid>#2</span>
                 </div>
                 <div class="commentMsg">
-                    <span class="commentReplyLink" data-reply-link>Replying to</span>
+                    <span class="commentReplyLink" data-reply-link><a href="#comment1">Replying to #1</a></span>
                     <span class="commentMsgContent">This is a comment</span>
                     <span class="commentReplyBtn"><button id="btn2" class="replyBtn"
                             data-reply-button>Reply</button></span>
@@ -40,11 +40,12 @@
         </div>
         <div class="commentDraft" data-comment-draft>
             <span class="replyTo" data-reply-to></span>
-            <form>
+            <form data-form>
                 <textarea id="replyMsg" id="msg"></textarea>
                 <input type="text" id="username" required>
-            </form>
+            
             <button data-submit>Submit</button>
+        </form>
         </div>
     </div>
 </body>

@@ -1,12 +1,12 @@
 class Comment {
-    constructor(msg, username) {
-        const commentId = document.querySelectorAll('[data-comment-id]').length + 1;
+    constructor(msg, username, commentId, replyText, replyId) {
+        // let commentId = document.querySelectorAll('[data-comment-id]').length + 1;
         const commentSection = document.querySelector('[data-comment-section]');
-        console.log(commentId);
 
         this.comment = document.createElement('div');
         this.comment.classList.add('comment')
-        this.comment.setAttribute('id', commentId);
+        this.comment.dataset.commentId = '';
+        this.comment.setAttribute('id', 'comment' + commentId)
 
         this.commentUser = document.createElement('div');
         this.commentUser.classList.add('commentUser');
@@ -18,7 +18,7 @@ class Comment {
 
         this.avatar = document.createElement('img');
         this.avatar.src = 'img/054.png';
-        this.commentUser.appendChild(this.avatar);
+        this.commentUserAvatar.appendChild(this.avatar);
 
         this.commentUserName = document.createElement('span');
         this.commentUserName.classList.add('commentUsername');
@@ -36,11 +36,17 @@ class Comment {
         this.commentMsg.classList.add('commentMsg');
         this.comment.appendChild(this.commentMsg);
 
-        this.commentReplyLink = document.createElement('span');
-        this.commentReplyLink.classList.add('commentReplyLink');
-        this.commentReplyLink.dataset.replyLink = '';
-        this.commentReplyLink.textContent = 'Replying to ' + commentId; 
-        this.commentMsg.appendChild(this.commentReplyLink);
+        if (replyText != '') {
+            this.commentReplyLink = document.createElement('span');
+            this.commentReplyLink.classList.add('commentReplyLink');
+            this.commentReplyLink.dataset.replyLink = '';
+            this.commentMsg.appendChild(this.commentReplyLink);
+
+            this.link = document.createElement('a');
+            this.link.setAttribute('href', '#comment' + replyId);
+            this.link.textContent = replyText;
+            this.commentReplyLink.appendChild(this.link);
+        }
 
         this.commentMsgContent = document.createElement('span');
         this.commentMsgContent.classList.add('commentMsgContent');
@@ -62,18 +68,9 @@ class Comment {
         createReplyBtn();
     }
 }
-const submitBtn = document.querySelector('[data-submit]');
-
-submitBtn.addEventListener('click', () => {
-    const msg = document.getElementById('replyMsg').value;
-    const userName = document.getElementById('username').value;
-
-    new Comment(msg, userName);
-
-})
 
 function createReplyLink(id) {
-    const userId = id;
+    const userId = id.replace('btn', '#');
     const replyLink = document.querySelector('[data-reply-to]');
     const commentDraft = document.querySelector('[data-comment-draft]');
 
@@ -87,7 +84,6 @@ function createReplyLink(id) {
 
     commentDraft.prepend(replyLink);
 
-
     const cancelReply = document.querySelector('[data-cancel-button]');
 
     cancelReply.addEventListener('click', () => {
@@ -97,7 +93,7 @@ function createReplyLink(id) {
         replyLink.textContent = '';
         commentDraft.prepend(replyLink);
     })
-    
+
 }
 
 function createReplyBtn() {
@@ -110,3 +106,21 @@ function createReplyBtn() {
 }
 
 createReplyBtn();
+const form = document.querySelector('[data-form]')
+form.addEventListener('submit', submitForm);
+
+function submitForm(e) {
+    e.preventDefault();
+    const msg = document.getElementById('replyMsg').value;
+    const userName = document.getElementById('username').value;
+    let commentId = document.querySelectorAll('[data-comment-id]').length + 1;
+    const reply = document.querySelectorAll('[data-reply-to]');
+    let replyText = '';
+    if (reply[0].firstChild != null) {
+        replyText = reply[0].firstChild.textContent.replace('btn', '#');
+    }
+
+    const replyId = replyText.replace(/\D/g, '');
+
+    new Comment(msg, userName, commentId, replyText, replyId);
+}
