@@ -103,7 +103,6 @@ function getPokemon(pokemon) {
 
         pokeTypeGen(pokemon, pokeTypeContainer, i);
 
-
         let pokeStatsLeft = document.createElement('div');
         pokeStatsLeft.classList.add('pokeStatsLeft');
 
@@ -117,8 +116,6 @@ function getPokemon(pokemon) {
         pokeContainer.appendChild(pokeStatsRight);
         
         // pokeStatsRight.textContent = pokemon[i].base.HP;
-        
-
         docFrag.appendChild(tile);
     }
     dex.appendChild(docFrag);
@@ -175,7 +172,6 @@ function pokeTypeGen(pokemon, pokeTypeContainer, i) {
         pokeType.textContent = pokemon[i].type[t];
         pokeTypeContainer.appendChild(pokeType);
     }
-
 }
 
 //stats generation

@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -17,6 +19,7 @@ body {
   border: 1px solid black;
   outline: none;
   border-radius: 0.5rem;
+  padding: 4px;
 }
 .root .form .searchButton {
   background: transparent;
@@ -40,4 +43,8 @@ body {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   background-color: white;
+}
+.root .form .searchResult span {
+  padding: 4px;
+  color: grey;
 }/*# sourceMappingURL=style.css.map */
