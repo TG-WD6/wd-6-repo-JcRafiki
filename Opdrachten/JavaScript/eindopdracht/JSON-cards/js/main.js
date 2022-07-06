@@ -6,7 +6,7 @@ fetch(json_url)
     })
     .then(function (pokemon) {
         getPokemon(pokemon);
-    }).catch(() =>{
+    }).catch(() => {
         console.log('Failed to load json');
     })
 
@@ -65,6 +65,7 @@ function getPokemon(pokemon) {
     const current = document.getElementById('current');
     current.value = genPicked;
 
+
     //poke stats generation
     for (let i = 0; i < genPicked; i++) {
 
@@ -114,39 +115,16 @@ function getPokemon(pokemon) {
         pokeStatsGen(pokemon, pokeStatsLeft, pokeStatsRight, i);
         pokeContainer.appendChild(pokeStatsLeft)
         pokeContainer.appendChild(pokeStatsRight);
-        
+
         // pokeStatsRight.textContent = pokemon[i].base.HP;
         docFrag.appendChild(tile);
     }
+
     dex.appendChild(docFrag);
 
-    //clear button
-    document.getElementById('clear').addEventListener('click', () => {
-        const dex = document.querySelector('.dex');
-        dex.textContent = '';
-        const current = document.getElementById('current');
-        current.value = 'Pick a Generation';
-    });
-
-    //create mouseOverEvent for bg-img
     const pokeStats = document.querySelectorAll('.tile');
+    removeBG(pokeStats);
 
-    pokeStats.forEach((tile) => {
-        tile.addEventListener('mouseenter', () => {
-            resetBG(tile.style.backgroundImage);
-            tile.style.backgroundImage = 'none';
-            tile.childNodes[0].style.opacity = '1';
-        });
-    });
-    //reset bg img after mouseleave
-    function resetBG(url) {
-        pokeStats.forEach((tile) => {
-            tile.addEventListener('mouseleave', () => {
-                tile.style.backgroundImage = url;
-                tile.childNodes[0].style.opacity = '0';
-            });
-        });
-    }
 }
 
 //img url generation
@@ -198,5 +176,90 @@ function pokeStatsGen(pokemon, pokeStatsLeft, pokeStatsRight, i) {
             pokeStatsRight.appendChild(pokeStats);
             pokeStatsRight.appendChild(pokeStatsVal);
         }
+    }
+}
+
+//reset bg img after mouseleave
+function resetBG(pokeStats, url) {
+    pokeStats.forEach((tile) => {
+        tile.addEventListener('mouseleave', () => {
+            tile.style.backgroundImage = url;
+            tile.childNodes[0].style.opacity = '0';
+        });
+    });
+}
+
+//create mouseOverEvent for bg-img
+function removeBG(pokeStats) {
+    pokeStats.forEach((tile) => {
+        tile.addEventListener('mouseenter', () => {
+            resetBG(pokeStats, tile.style.backgroundImage);
+            tile.style.backgroundImage = 'none';
+            tile.childNodes[0].style.opacity = '1';
+        });
+    });
+}
+
+//clear button
+document.getElementById('clear').addEventListener('click', () => {
+    const dex = document.querySelector('.dex');
+    dex.textContent = '';
+    const current = document.getElementById('current');
+    current.value = 'Pick a Generation';
+});
+
+function genDex(pokemon) {
+    //poke stats generation
+    for (let i = 0; i < genPicked; i++) {
+
+        //create tile
+        let tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.style.backgroundImage = 'url(' + pokeBgSrc + pokeImgGen(i) + ')';
+
+        //create data container
+        let pokeContainer = document.createElement('div');
+        pokeContainer.classList.add('pokeContainer');
+        tile.appendChild(pokeContainer);
+
+        let pokeNameContainer = document.createElement('div');
+        pokeNameContainer.classList.add('pokeNameContainer');
+        pokeContainer.appendChild(pokeNameContainer);
+
+        let pokeName = document.createElement('span');
+        pokeName.classList.add('pokeName');
+        pokeName.textContent = pokemon[i].name.english;
+        pokeNameContainer.appendChild(pokeName);
+
+        let pokeImg = document.createElement('img');
+        pokeImg.classList.add('pokeImg');
+        pokeImg.src = pokeThumbSrc + pokeImgGen(i);
+        pokeNameContainer.appendChild(pokeImg);
+
+        let pokeId = document.createElement('span');
+        pokeId.classList.add('pokeId');
+        pokeId.textContent = '#' + pokemon[i].id;
+        pokeNameContainer.appendChild(pokeId);
+
+        let pokeTypeContainer = document.createElement('div');
+        pokeTypeContainer.classList.add('pokeTypeContainer');
+        pokeContainer.appendChild(pokeTypeContainer);
+
+        pokeTypeGen(pokemon, pokeTypeContainer, i);
+
+        let pokeStatsLeft = document.createElement('div');
+        pokeStatsLeft.classList.add('pokeStatsLeft');
+
+        let pokeStatsRight = document.createElement('div');
+        pokeStatsRight.classList.add('pokeStatsRight');
+        // pokeStatsLeft.textContent = pokemon[i].base;
+        // pokeContainer.appendChild(pokeStatsLeft);
+
+        pokeStatsGen(pokemon, pokeStatsLeft, pokeStatsRight, i);
+        pokeContainer.appendChild(pokeStatsLeft)
+        pokeContainer.appendChild(pokeStatsRight);
+
+        // pokeStatsRight.textContent = pokemon[i].base.HP;
+        docFrag.appendChild(tile);
     }
 }
