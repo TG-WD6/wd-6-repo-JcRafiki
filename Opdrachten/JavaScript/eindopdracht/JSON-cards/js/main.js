@@ -1,134 +1,117 @@
 const json_url = "../JSON-cards/pokemon-json/pokedex.json";
+const pokeThumbSrc = './pokemon-json/thumbnails/';
+const pokeBgSrc = './pokemon-json/images/';
+const dex = document.querySelector('.dex');
+
+const url = window.location.search;
+const urlParams = new URLSearchParams(url);
+
+//create docfragment
+const docFrag = document.createDocumentFragment();
 
 fetch(json_url)
     .then(function (resp) {
         return resp.json();
     })
     .then(function (pokemon) {
-        console.log(pokemon);
-        //getPokemon(pokemon);
         genDex(pokemon);
-    }).catch(() => {
+    }).catch((error) => {
+        console.log(error);
         console.log('Failed to load json');
     })
 
-function getPokemon(pokemon) {
-    //pokeGens
-    const genOne = 151;
-    const genTwo = 251;
-    const genThree = 368;
-    const genFour = 493;
-    const genFive = 649;
-    const genSix = 721;
-    const genSeven = 809;
-    let genPicked = 'Pick a Generation';
+function genDex(pokemon) {
+    const genPicked = genSelect();
 
-    const pokeThumbSrc = './pokemon-json/thumbnails/';
-    const pokeBgSrc = './pokemon-json/images/';
+    const filterType1 = urlParams.get('filterType1');
+    const filterType2 = urlParams.get('filterType2');
 
-    //get search paras
-    const url = window.location.search;
-    const urlParams = new URLSearchParams(url);
-    const pokeGen = urlParams.get('pokeGen');
+    const twoTypes = pokemon.filter(pokemon => pokemon.type.length == 2);
+    const oneType = pokemon.filter(pokemon => pokemon.type.length == 1);  
+    
 
-    const dex = document.querySelector('.dex');
-    //create docfragment
-    const docFrag = document.createDocumentFragment();
+    let result = [];
 
-    //set chosen gen
-    if (pokeGen != '') {
-        switch (pokeGen) {
-            case 'gen1':
-                genPicked = 151;
-                break;
-            case 'gen2':
-                genPicked = 251;
-                break;
-            case 'gen3':
-                genPicked = 368;
-                break;
-            case 'gen4':
-                genPicked = 493;
-                break;
-            case 'gen5':
-                genPicked = 649;
-                break;
-            case 'gen6':
-                genPicked = 729;
-                break;
-            case 'gen7':
-                genPicked = 809;
-                break;
-            default:
-                break;
+    //filters
+    //when 2 types are selected and are not the same
+    if ((filterType1 != '' && filterType2 != '') && filterType1 != filterType2 ) {
+        for (let i = 0; i < twoTypes.length; i++) {
+            if ((filterType1 == twoTypes[i].type[0] && filterType2 == twoTypes[i].type[1]) ||
+                (filterType1 == twoTypes[i].type[1] && filterType2 == twoTypes[i].type[0])) {
+                result.push(twoTypes[i]);
+            }
+        }
+    //when 1 type is selected
+    } else if ((filterType1 != '' && filterType2 == '') ||
+        (filterType1 == '' && filterType2 != '')) {
+        for (let i = 0; i < oneType.length; i++) {
+            if (filterType1 == oneType[i].type || filterType2 == oneType[i].type) {
+                result.push(oneType[i]);
+            }
+        }
+    } else {
+        //when no type is selected
+        result = pokemon;
+    }
+
+     //poke stats generation
+    for (let i = 0; i < result.length; i++) {
+        if (result[i].id <= genPicked) {
+            //create tile
+            const tile = document.createElement('div');
+            tile.classList.add('tile');
+            tile.style.backgroundImage = 'url(' + pokeBgSrc + pokeImgGen(result[i].id-1) + ')';
+
+            //create data container
+            const pokeContainer = document.createElement('div');
+            pokeContainer.classList.add('pokeContainer');
+            tile.appendChild(pokeContainer);
+
+            const pokeNameContainer = document.createElement('div');
+            pokeNameContainer.classList.add('pokeNameContainer');
+            pokeContainer.appendChild(pokeNameContainer);
+
+            const pokeName = document.createElement('span');
+            pokeName.classList.add('pokeName');
+            pokeName.textContent = result[i].name.english;
+            pokeNameContainer.appendChild(pokeName);
+
+            const pokeImg = document.createElement('img');
+            pokeImg.classList.add('pokeImg');
+            pokeImg.src = pokeThumbSrc + pokeImgGen(result[i].id-1);
+            pokeNameContainer.appendChild(pokeImg);
+
+            const pokeId = document.createElement('span');
+            pokeId.classList.add('pokeId');
+            pokeId.textContent = '#' + result[i].id;
+            pokeNameContainer.appendChild(pokeId);
+
+            const pokeTypeContainer = document.createElement('div');
+            pokeTypeContainer.classList.add('pokeTypeContainer');
+            pokeContainer.appendChild(pokeTypeContainer);
+
+            pokeTypeGen(result, pokeTypeContainer, i);
+
+            const pokeStatsLeft = document.createElement('div');
+            pokeStatsLeft.classList.add('pokeStatsLeft');
+
+            const pokeStatsRight = document.createElement('div');
+            pokeStatsRight.classList.add('pokeStatsRight');
+
+            pokeStatsGen(result, pokeStatsLeft, pokeStatsRight, i);
+            pokeContainer.appendChild(pokeStatsLeft)
+            pokeContainer.appendChild(pokeStatsRight);
+
+            //add tiles to docFrag
+            docFrag.appendChild(tile);
         }
     }
-
-    const current = document.getElementById('current');
-    current.value = genPicked;
-
-    // //poke stats generation
-    for (let i = 0; i < genPicked; i++) {
-
-        //create tile
-        let tile = document.createElement('div');
-        tile.classList.add('tile');
-        tile.style.backgroundImage = 'url(' + pokeBgSrc + pokeImgGen(i) + ')';
-
-        //create data container
-        let pokeContainer = document.createElement('div');
-        pokeContainer.classList.add('pokeContainer');
-        tile.appendChild(pokeContainer);
-
-        let pokeNameContainer = document.createElement('div');
-        pokeNameContainer.classList.add('pokeNameContainer');
-        pokeContainer.appendChild(pokeNameContainer);
-
-        let pokeName = document.createElement('span');
-        pokeName.classList.add('pokeName');
-        pokeName.textContent = pokemon[i].name.english;
-        pokeNameContainer.appendChild(pokeName);
-
-        let pokeImg = document.createElement('img');
-        pokeImg.classList.add('pokeImg');
-        pokeImg.src = pokeThumbSrc + pokeImgGen(i);
-        pokeNameContainer.appendChild(pokeImg);
-
-        let pokeId = document.createElement('span');
-        pokeId.classList.add('pokeId');
-        pokeId.textContent = '#' + pokemon[i].id;
-        pokeNameContainer.appendChild(pokeId);
-
-        let pokeTypeContainer = document.createElement('div');
-        pokeTypeContainer.classList.add('pokeTypeContainer');
-        pokeContainer.appendChild(pokeTypeContainer);
-
-        pokeTypeGen(pokemon, pokeTypeContainer, i);
-
-        let pokeStatsLeft = document.createElement('div');
-        pokeStatsLeft.classList.add('pokeStatsLeft');
-
-        let pokeStatsRight = document.createElement('div');
-        pokeStatsRight.classList.add('pokeStatsRight');
-        // pokeStatsLeft.textContent = pokemon[i].base;
-        // pokeContainer.appendChild(pokeStatsLeft);
-
-        pokeStatsGen(pokemon, pokeStatsLeft, pokeStatsRight, i);
-        pokeContainer.appendChild(pokeStatsLeft)
-        pokeContainer.appendChild(pokeStatsRight);
-
-        // pokeStatsRight.textContent = pokemon[i].base.HP;
-        docFrag.appendChild(tile);
-    }
-
+    //add docFrag to dex
     dex.appendChild(docFrag);
 
     const pokeStats = document.querySelectorAll('.tile');
     removeBG(pokeStats);
-
 }
-
-genDex(pokemon);
 
 //img url generation
 function pokeImgGen(i) {
@@ -144,13 +127,13 @@ function pokeImgGen(i) {
 }
 
 //type css generation
-function pokeTypeGen(pokemon, pokeTypeContainer, i) {
+function pokeTypeGen(result, pokeTypeContainer, i) {
 
-    for (let t = 0; t < pokemon[i].type.length; t++) {
+    for (let t = 0; t < result[i].type.length; t++) {
         let pokeType = document.createElement('span');
         pokeType.classList.add('type');
-        pokeType.classList.add(pokemon[i].type[t]);
-        pokeType.textContent = pokemon[i].type[t];
+        pokeType.classList.add(result[i].type[t]);
+        pokeType.textContent = result[i].type[t];
         pokeTypeContainer.appendChild(pokeType);
     }
 }
@@ -203,6 +186,47 @@ function removeBG(pokeStats) {
     });
 }
 
+//get selected generation
+function genSelect() {
+    let genPicked = 'Pick a Generation';
+
+    //get search paras
+    const pokeGen = urlParams.get('pokeGen');
+
+    //set chosen gen
+    if (pokeGen != '') {
+        switch (pokeGen) {
+            case 'gen1':
+                genPicked = 151;
+                break;
+            case 'gen2':
+                genPicked = 251;
+                break;
+            case 'gen3':
+                genPicked = 386;
+                break;
+            case 'gen4':
+                genPicked = 493;
+                break;
+            case 'gen5':
+                genPicked = 649;
+                break;
+            case 'gen6':
+                genPicked = 721;
+                break;
+            case 'gen7':
+                genPicked = 810;
+                break;
+            default:
+                break;
+        }
+    }
+
+    const current = document.getElementById('current');
+    current.value = genPicked;
+    return genPicked;
+}
+
 //clear button
 document.getElementById('clear').addEventListener('click', () => {
     const dex = document.querySelector('.dex');
@@ -210,59 +234,3 @@ document.getElementById('clear').addEventListener('click', () => {
     const current = document.getElementById('current');
     current.value = 'Pick a Generation';
 });
-
-function genDex(pokemon) {
-    //poke stats generation
-    for (let i = 0; i < genPicked; i++) {
-
-        //create tile
-        let tile = document.createElement('div');
-        tile.classList.add('tile');
-        tile.style.backgroundImage = 'url(' + pokeBgSrc + pokeImgGen(i) + ')';
-
-        //create data container
-        let pokeContainer = document.createElement('div');
-        pokeContainer.classList.add('pokeContainer');
-        tile.appendChild(pokeContainer);
-
-        let pokeNameContainer = document.createElement('div');
-        pokeNameContainer.classList.add('pokeNameContainer');
-        pokeContainer.appendChild(pokeNameContainer);
-
-        let pokeName = document.createElement('span');
-        pokeName.classList.add('pokeName');
-        pokeName.textContent = pokemon[i].name.english;
-        pokeNameContainer.appendChild(pokeName);
-
-        let pokeImg = document.createElement('img');
-        pokeImg.classList.add('pokeImg');
-        pokeImg.src = pokeThumbSrc + pokeImgGen(i);
-        pokeNameContainer.appendChild(pokeImg);
-
-        let pokeId = document.createElement('span');
-        pokeId.classList.add('pokeId');
-        pokeId.textContent = '#' + pokemon[i].id;
-        pokeNameContainer.appendChild(pokeId);
-
-        let pokeTypeContainer = document.createElement('div');
-        pokeTypeContainer.classList.add('pokeTypeContainer');
-        pokeContainer.appendChild(pokeTypeContainer);
-
-        pokeTypeGen(pokemon, pokeTypeContainer, i);
-
-        let pokeStatsLeft = document.createElement('div');
-        pokeStatsLeft.classList.add('pokeStatsLeft');
-
-        let pokeStatsRight = document.createElement('div');
-        pokeStatsRight.classList.add('pokeStatsRight');
-        // pokeStatsLeft.textContent = pokemon[i].base;
-        // pokeContainer.appendChild(pokeStatsLeft);
-
-        pokeStatsGen(pokemon, pokeStatsLeft, pokeStatsRight, i);
-        pokeContainer.appendChild(pokeStatsLeft)
-        pokeContainer.appendChild(pokeStatsRight);
-
-        // pokeStatsRight.textContent = pokemon[i].base.HP;
-        docFrag.appendChild(tile);
-    }
-}
