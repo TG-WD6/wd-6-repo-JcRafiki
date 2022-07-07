@@ -5,7 +5,9 @@ fetch(json_url)
         return resp.json();
     })
     .then(function (pokemon) {
-        getPokemon(pokemon);
+        console.log(pokemon);
+        //getPokemon(pokemon);
+        genDex(pokemon);
     }).catch(() => {
         console.log('Failed to load json');
     })
@@ -65,8 +67,7 @@ function getPokemon(pokemon) {
     const current = document.getElementById('current');
     current.value = genPicked;
 
-
-    //poke stats generation
+    // //poke stats generation
     for (let i = 0; i < genPicked; i++) {
 
         //create tile
@@ -126,6 +127,8 @@ function getPokemon(pokemon) {
     removeBG(pokeStats);
 
 }
+
+genDex(pokemon);
 
 //img url generation
 function pokeImgGen(i) {
