@@ -1,12 +1,15 @@
-const board = document.querySelector('[data-board]');
+//todo
+//fix div is undefined typeError
+//win animation
 
+const board = document.querySelector('[data-board]');
+const children = Array.from(board.children);
 
 const boardAr =
     ['', '', '',
         '', '', '',
         '', '', ''];
 
-const children = Array.from(board.children);
 children.forEach(div => {
     div.addEventListener('click', () => {
         play(div);
@@ -17,22 +20,22 @@ let i = 0;
 function play(div) {
     if (i % 2 == 0) {
         const pos = div.getAttribute('data-square') - 1;
-        if (boardAr[pos] == "") {
-            div.classList.add('checked')
+        if (boardAr[pos] === "") {
+            div.classList.add('checked');
             div.textContent = 'x';
             boardAr.splice(pos, 1, "p1");
         } else {
-            console.log("Kies een ander vak");
+            console.log("Choose other square");
             i--;
         }
     } else {
         const pos = div.getAttribute('data-square') - 1;
-        if (boardAr[pos] == "") {
-            div.classList.add('checked')
+        if (boardAr[pos] === "") {
+            div.classList.add('checked');
             div.textContent = '0';
             boardAr.splice(pos, 1, "p2");
         } else {
-            console.log("Kies een ander vak");
+            alert("Square is taken, pick another!");
             i--;
         }
     }
@@ -40,30 +43,41 @@ function play(div) {
     if ((boardAr[0] === "p1" && boardAr[1] === "p1" && boardAr[2] === "p1") ||
         (boardAr[3] === "p1" && boardAr[4] === "p1" && boardAr[5] === "p1") ||
         (boardAr[6] === "p1" && boardAr[7] === "p1" && boardAr[8] === "p1")) {
-        console.log("player 1 wins horizontaal");
+        if (!alert("Player 1 wins")){
+            window.location.reload();
+        }
     } else if ((boardAr[0] === "p1" && boardAr[3] === "p1" && boardAr[6] === "p1") ||
         (boardAr[1] === "p1" && boardAr[4] === "p1" && boardAr[7] === "p1") ||
-        (boardAr[2] === "p1" && boardAr[5] === "p1" && boardAr[8] === "p1") == "1") {
-        console.log("player 1 wins verticaal");
+        (boardAr[2] === "p1" && boardAr[5] === "p1" && boardAr[8] === "p1") === "p1") {
+            if (!alert("Player 1 wins")){
+                window.location.reload();
+            }
     } else if ((boardAr[0] === "p1" && boardAr[4] === "p1" && boardAr[8] === "p1") ||
         (boardAr[2] === "p1" && boardAr[4] === "p1" && boardAr[6] === "p1")) {
-        console.log("player 1 wins diagonaal");
+            if (!alert("Player 1 wins")){
+                window.location.reload();
+            }
     }
     //wincondition p2
     if ((boardAr[0] === "p2" && boardAr[2] === "p2" && boardAr[2] === "p2") ||
         (boardAr[3] === "p2" && boardAr[4] === "p2" && boardAr[5] === "p2") ||
         (boardAr[6] === "p2" && boardAr[7] === "p2" && boardAr[8] === "p2")) {
-        console.log("player 2 wins horizontaal");
+            if (!alert("Player 2 wins")){
+                window.location.reload();
+            }
     } else if ((boardAr[0] === "p2" && boardAr[3] === "p2" && boardAr[6] === "p2") ||
         (boardAr[2] === "p2" && boardAr[4] === "p2" && boardAr[7] === "p2") ||
-        (boardAr[2] === "p2" && boardAr[5] === "p2" && boardAr[8] === "p2") == "2") {
-        console.log("player 2 wins verticaal");
+        (boardAr[2] === "p2" && boardAr[5] === "p2" && boardAr[8] === "p2") === "p2") {
+            if (!alert("Player 2 wins")){
+                window.location.reload();
+            }
     } else if ((boardAr[0] === "p2" && boardAr[4] === "p2" && boardAr[8] === "p2") ||
         (boardAr[2] === "p2" && boardAr[4] === "p2" && boardAr[6] === "p2")) {
-        console.log("player 2 wins diagonaal");
+            if (!alert("Player 2 wins")){
+                window.location.reload();
+            }
     }
     i++;
-    console.log(boardAr);
 }
 
 play();

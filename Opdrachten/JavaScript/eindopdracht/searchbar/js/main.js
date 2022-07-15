@@ -1,10 +1,13 @@
-let input = document.querySelector('[data-keywords]');
+const input = document.querySelector('[data-keywords]');
 
 input.oninput = handleInput;
 
+
+
 function handleInput(e) {
+    console.log(e);
     let search = e.target.value //get input value
-    const keywords = Object.values(localStorage); //get stored keaywords from localStorage
+    const keywords = Object.values(localStorage); //get stored keywords from localStorage
 
     const form = document.querySelector('[data-form]');
     form.lastElementChild.remove(); //remove previous matched keywords
@@ -15,10 +18,10 @@ function handleInput(e) {
     //set matched keyword div to hidden if input is empty
     if (search === '') {
         keywordDiv.style.visibility = 'hidden';
-        input.style.borderBottom = '1px solid black';
-        input.style.borderRadius = '.5rem';
+        // input.style.borderBottom = '1px solid black';
+        // input.style.borderRadius = '.5rem';
     } else if (search.length > 0) {
-        input.style.borderBottom = '0px solid black';
+        input.style.borderBottom = '0px';
         input.style.borderBottomLeftRadius = '0rem';
         input.style.borderBottomRightRadius = '0rem';
         //look for match localstorage keywords
